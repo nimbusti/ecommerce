@@ -17,19 +17,155 @@
   <!-- build:vulcanized elements/elements.vulcanized.html -->
   <link rel="import" href="elements/elements.html">
   <!-- endbuild-->
+  <link rel="import" href="bower_components/core-header-panel/core-header-panel.html">
+  <link rel="import" href="bower_components/core-drawer-panel/core-drawer-panel.html">
+  <link rel="import" href="bower_components/core-toolbar/core-toolbar.html">
+  <link rel="import" href="bower_components/paper-icon-button/paper-icon-button.html">
+  <link rel="import" href="bower_components/core-icons/core-icons.html">
+    <style shim-shadowdom>
+
+    body {
+      font-family: sans-serif;
+    }
+    
+    a:-webkit-any-link {
+		text-decoration: none;
+		color: #666;
+	}
+
+    core-toolbar {
+      background-color: #CFA0E9;
+    }
+
+    core-toolbar.red-theme {
+      background-color: #e01f12;
+      color: #f1f1f1;
+      fill: #f1f1f1;
+      z-index: 10;
+    }
+
+    #searchField {
+		border: 1px solid #e0e0e0;
+		border-radius: 20px;
+		background-color: #ffffff;
+	}
+	
+	#searchField input {
+		border: none !important;
+		vertical-align: middle;
+	}
+	
+	.cart-sidebar {
+		background-color: #eee;
+		padding: 14px 14px 0;
+		width: 192px;
+		float: left;
+	}
+	
+	.quick-checkout {
+		text-align: center;
+		padding: 0 0 24px;
+		margin-bottom: 20px;
+		border-bottom: 1px solid #ccc;
+	}
+	
+	.quick-checkout .title {
+		font-size: 18px;
+		display: block;
+		color: #666;
+	}
+	
+	.quick-checkout .button {
+		-webkit-border-radius: 30px;
+		-moz-border-radius: 30px;
+		border-radius: 30px;
+		margin-top: 10px;
+		background-color: #e83d16;
+		text-transform: uppercase;
+		height: 30px;
+		line-height: 30px;
+		padding-top: 1px;
+		width: 100%;
+		font-family: "proxima-nova",sans-serif;
+		font-weight: 600;
+		font-size: 14px;
+		color: #FFF;
+		display: inline-block;
+	}
+
+	.category-links {
+		margin: 0;
+	}
+	
+	.category-links h6 {
+		font-size: 12px;
+		color: #999;
+		text-transform: uppercase;
+	}
+	
+	.category-links ul {
+		list-style-type: none;
+		padding: 0 0 14px;
+		width: 220px;
+		margin-left: 0px;
+		color: #555;
+	}
+	
+	.category-links ul a {
+		display: block;
+		font-size: 14px;
+		padding: 5px 0px 5px 14px;
+	}
+	
+	.category-links ul a:hover {
+		background-color:#fafafa
+	}
+	
+	.category-links .selectedButton {
+		background-color: #fafafa;
+		font-weight: bold;
+	}
+	
+	.category-links .defaultButton {
+		font-weight: bold;
+	}
+  </style>
 </head>
 
 <body unresolved>
-
-  <div class="hero-unit">
-    <yo-greeting></yo-greeting>
-    <p>You now have</p>
-    <yo-list></yo-list>
-  </div>
-
-  <!-- build:js scripts/app.js -->
-  <script src="scripts/app.js"></script>
-  <!-- endbuild-->
+<core-drawer-panel>
+  <core-header-panel drawer>
+    <core-toolbar class="red-theme">
+    	<core-field id='searchField'> 
+			<core-icon icon="search" on-tap="{{moreAction}}"></core-icon>
+				<input placeholder="produto..." />
+		</core-field>
+	</core-toolbar>
+    <div>
+    	<section class="cart-sidebar">
+    		<div class="quick-checkout">
+    			<span class="title">5 Produtos - R$300,00</span>
+    			<a href="#" class="button">Checkout Rápido</a>
+    		</div>
+    		<div class="category-links">
+    			<h6>Filtrar por Categoria</h6>
+    			<ul id="filtra-categoria">
+    				<li><a class="defaultButton" href="#">Todas</a></li>
+    				<li><a href="#">Eletros</a></li>
+    				<li><a href="#">Banho</a></li>
+    				<li><a href="#">Decoração</a></li>
+    				<li><a href="#">Cartões de Presente</a></li>		
+    			</ul>
+    		</div>
+    	</section>
+    </div>
+  </core-header-panel>
+  <core-header-panel main>
+    <core-toolbar class="red-theme">
+    <paper-icon-button id="menuicon" icon="menu" onclick="document.querySelector('core-drawer-panel').togglePanel();"></paper-icon-button>
+    <div> LOJA VIRTUAL </div>
+  </core-header-panel>
+</core-drawer-panel>
 </body>
 
 </html>
