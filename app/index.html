@@ -2,41 +2,36 @@
 <html>
 
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Polymer WebApp</title>
-  <meta name="description" content="">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-
-  <!-- build:css styles/main.css -->
-  <link rel="stylesheet" href="styles/main.css">
-  <!-- endbuild-->
-
+	<meta name="viewport" content="width=device-width, initial-scale=1">
   <script src="bower_components/platform/platform.js"></script>
   <!-- build:vulcanized elements/elements.vulcanized.html -->
   <link rel="import" href="elements/elements.html">
   <!-- endbuild-->
   <link rel="import" href="bower_components/core-header-panel/core-header-panel.html">
   <link rel="import" href="bower_components/core-drawer-panel/core-drawer-panel.html">
-  <link rel="import" href="bower_components/core-toolbar/core-toolbar.html">
   <link rel="import" href="bower_components/paper-icon-button/paper-icon-button.html">
   <link rel="import" href="bower_components/core-icons/core-icons.html">
-  <link rel="import" href="bower_components/paper-ripple/paper-ripple.html">
-  <style shim-shadowdom>
+  <link rel="import" href="bower_components/core-icon-button/core-icon-button.html">
+  <link rel="import" href="bower_components/core-toolbar/core-toolbar.html"> 
+  <link rel="import" href="bower_components/core-animated-pages/core-animated-pages.html">
+<style>
 
     body {
       font-family: sans-serif;
     }
+
+    #container {
+      overflow: auto;
+    }
     
+	core-drawer-panel, core-header-panel {
+	    height: 100%;
+	}
+
     a:-webkit-any-link {
 		text-decoration: none;
 		color: #666;
 	}
-
-    core-toolbar {
-      background-color: #CFA0E9;
-    }
 
     core-toolbar.red-theme {
       background-color: #e01f12;
@@ -130,22 +125,17 @@
 	.category-links .defaultButton {
 		font-weight: bold;
 	}
-	
-	p {
-  		margin: 20px;
-  		padding: 80px 20px;
-  		border-radius: 20px;
- 		background-color: #eee;
-	}
-  </style>
-</head>
+    </style>
 
-<body unresolved>
-<core-drawer-panel>
+  </head>
+
+<body unresolved fullbleed vertical layout>
+
+  <core-drawer-panel>
   <core-header-panel drawer>
     <core-toolbar class="red-theme">
     	<core-field id='searchField'> 
-			<core-icon icon="search" on-tap="{{moreAction}}"></core-icon>
+			<core-icon icon="search" on-tap=""></core-icon>
 				<input placeholder="produto..." />
 		</core-field>
 	</core-toolbar>
@@ -165,16 +155,14 @@
     			</ul>
     		</div>
     	</section>
-  </core-header-panel>
+ </core-header-panel>
   <core-header-panel main>
     <core-toolbar class="red-theme">
     <paper-icon-button id="menuicon" icon="menu" onclick="document.querySelector('core-drawer-panel').togglePanel();"></paper-icon-button>
     <div> LOJA VIRTUAL </div>
     </core-toolbar>
-    <product-card></product-card>
-
+	<products-grid></products-grid>
   </core-header-panel>
 </core-drawer-panel>
 </body>
-
 </html>

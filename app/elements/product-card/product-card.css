@@ -5,10 +5,10 @@
 	box-sizing: border-box;
 }
 
-#core-card {
-	position: relative;
-	width: 300px;
-	height: 300px;
+div.item-card {
+	float: left;
+	width: 250px;
+	height: 250px;
 	border-top-left-radius: 2px;
 	border-top-right-radius: 2px;
 	border-bottom-right-radius: 2px;

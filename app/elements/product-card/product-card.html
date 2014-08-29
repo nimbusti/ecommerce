@@ -1,13 +1,19 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
 
 <polymer-element name="product-card">
-  <template>
-  	<link rel="stylesheet" href="product-card.css">
-  	<div class="title">Promoções</div>
-    <core-card id="core-card" layout vertical>Teste</core-card>
-  </template>
-  <script>
-    Polymer('product-card', {    
-    });
-  </script>
+<template>
+	<link rel="stylesheet" href="product-card.css">
+	<div class="title">Promoções</div>
+	<div class="container-fluid">
+	<div class="row">
+		<div class="col-xs-3 item-card">Produto #1</div>
+		<div class="col-xs-3 item-card">Produto #2</div>
+		<div class="col-xs-3 item-card">Produto #3</div>
+		<div class="col-xs-3 item-card">Produto #4</div>
+	</div>
+</div>
+</template> 
+<script>
+	Polymer('product-card', {});
+</script>
 </polymer-element>
