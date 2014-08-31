@@ -1,13 +1,13 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
 
-<polymer-element name="product-card" attributes="product">
+<polymer-element name="product-detail" attributes="product">
 <template>
-	<link rel="stylesheet" href="product-card.css">
+	<link rel="stylesheet" href="product-detail.css">
 	<div class="pimage"><img src="{{product.image}}" height="150px;"/></div>
 	<div class="title">{{product.title}}</div>
-		<div class="price">R${{product.price}},00</div>
+	<div class="price">R${{product.price}},00</div>
 </template> 
 <script>
-	Polymer('product-card', {});
+	Polymer('product-detail', {});
 </script>
 </polymer-element>

@@ -11,13 +11,13 @@
       <section vertical layout>
         <div id="container" flex horizontal wrap around-justified layout hero-p>
           <template repeat="{{item in items}}">
-            <div class="card" horizontal center center-justified layout hero-id="item-{{item}}" hero?="{{$.pages.selected === item + 1 || lastSelected === item + 1}}" on-tap="{{selectView}}"><span cross-fade>{{item}}</span></div>
+            <div class="card" horizontal center center-justified layout hero-id="item-{{item.index}}" hero?="{{$.pages.selected === item.index + 1 || lastSelected === item.index + 1}}" on-tap="{{selectView}}"><span cross-fade><product-card product="[[item]]"></product-card></span></div>
           </template>
         </div>
       </section>
       <template repeat="{{item in items}}">
         <section vertical layout>
-          <div class="view" flex vertical center center-justified layout hero-id="item-{{item}}" hero?="{{$.pages.selected === item + 1 || $.pages.selected === 0}}"><span cross-fade>{{item}}</span></div>
+          <div class="view" flex horizontal center center-justified layout hero-id="item-{{item.index}}" hero?="{{$.pages.selected === item.index + 1 || $.pages.selected === 0}}"><span cross-fade><product-detail product="[[item]]"></product-detail></span></div>
           <core-icon-button icon= 'arrow-back' on-tap="{{back}}"></core-icon-button>
         </section>
       </template>
@@ -26,11 +26,32 @@
   <script>
   Polymer('products-grid', {
 	  ready: function() {
-		  var count = 50;
-	      var items = [];
-	      for (var i=0; i < count; i++) {
-	        items.push(i);
-	      }
+	      var items = [
+	                   {
+	                   	index: 0, SKU: '001', title: 'Cafeteira Xp 10 Krups', description: '220V. Potência: 1350W. Marca: Arno',
+	                       price: 100, category: 'Cafeteiras', sold: 'false', image: 'images/krups.jpg'
+	                   },
+	                   {
+	                	index: 1, SKU: '002', title: 'Torradeira Inox', description: '220V. Marca: Arno',
+	                       price: 100, category: 'Torradeiras', sold: 'false', image: 'images/4908_400x320.jpg'
+	                   },
+	                   {
+	                	index: 2, SKU: '003', title: 'Liquidificador Delux', description: '220V. Potência: 550W. Marca: Delux.',
+	                       price: 100, category: 'Liquidificadores', sold: 'false', image: 'images/12595_400x320.jpg'
+	                   },
+	                   {
+	                	index: 3, SKU: '004', title: 'Sanduicheira Compacta Collection', description: ' 220V. Cor: Vermelha. Marca: Arno.',
+	                       price: 100, category: 'Sanduicheiras', sold: 'false', image: 'images/4568_400x320.jpg'
+	                   },
+	                   {
+	                	index: 4, SKU: '005', title: 'Batedeira Elipse Adriana Barra', description: '220V. Marca: Arno',
+	                       price: 100, category: 'Batedeiras', sold: 'false', image: 'images/15464_400x320.jpg'
+	                   },
+	                   {
+	                	index: 5, SKU: '006', title: 'Adega Dynasty', description: 'Compressor para 34 garrafas.',
+	                       price: 100, category: 'Adegas', sold: 'false', image: 'images/17080_400x320.jpg'
+	                   }     
+	                ];
 	      this.items = items;		  
 	  },
 	  transitionend: function() {
@@ -43,7 +64,7 @@
 	        this.$.pages.selected = 0;
 	  },
 	  selectView: function(e) {
-	        var i = e.target.templateInstance.model.item;
+	        var i = e.target.templateInstance.model.item.index;
 	        this.$.pages.selected = i+1;
 	  }
   });
