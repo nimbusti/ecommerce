@@ -4,26 +4,26 @@
 	box-sizing: border-box;
 }
 
-div.pimage {
-	height: 150px;
-	v-align: top;
-	text-align: center;
-}
-div.title {
-	font-family: "proxima-nova",Helvetica,Arial,sans-serif;
-	font-size: 22px;
-	font-weight: 300;
-	line-height: 1.2em;
-	padding: 0;
-	text-rendering: optimizeLegibility;
-	text-shadow: 0 0 1px rgba(255,255,255,0.01);
-	color: #333;
-	text-align: center;
-	width: 240px;
-	overlay: invisible;
+img.pimage {
+	float: left;
 }
 
-div.price {
+div.product-title {
+	font-family: 'Roboto Condensed', Helvetica, Times New Roman, sans-serif;
+	text-transform: uppercase;
+	font-size: 1.5em;
+	font-weight: 300;
+	line-height: 1.2em;
+	padding-top: 30px;
+	padding-bottom: 30px;
+	text-rendering: optimizeLegibility;
+	text-shadow: 0 0 1px rgba(255,255,255,0.01);
+	color: #252a2f;
+	text-align: center;
+}
+
+p.product-price {
+	text-transform: uppercase;
 	font-family: "proxima-nova",Helvetica,Arial,sans-serif;
 	font-size: 20px;
 	font-weight: 300;
@@ -31,6 +31,75 @@ div.price {
 	padding-top: 10px;
 	text-rendering: optimizeLegibility;
 	text-shadow: 0 0 1px rgba(255,255,255,0.01);
+	text-align: center;
+}
+
+.product-price-final {
 	color: green;
-	float: right;
+}
+
+.product-price-original {
+	color: red;
+	text-decoration: line-through;
+}
+
+div.product-info {
+	padding-top: 10px;
+	padding-left: 2px;
+	padding-right: 2px;
+}
+
+div.images-block {
+	padding-left: 2px;
+	padding-right: 2px;
+}
+
+.list-inline {
+	padding-left: 10px;
+	margin-left: 0px;
+	list-style: none;
+	text-align: center;
+}
+
+.list-inline>li {
+	display: inline-block;
+	padding-right: 5px;
+	padding-left: 5px;
+}
+
+.img-thumbnail {
+	max-width: 80px;
+	height: auto;
+}
+
+div.product-label {
+	padding: 13px 20px;
+	font-size: 18px;
+	color: #2f353b;
+	text-transform: uppercase;
+	background: #fff;
+	border-top: 1px solid #e8e8e8;
+	border-right: 1px solid #e8e8e8;
+	border-bottom: 4px solid #ffb400;
+	border-left: 1px solid #e8e8e8;
+	margin-bottom: 20px;
+}
+
+p.product-description {
+	padding-bottom: 10px;
+	padding-left: 20px;
+	padding-right: 20px;
+	font-family: 'Roboto Condensed', Helvetica, Times New Roman, sans-serif;
+	font-size: 1.0em;
+	color: #a0a0a0;
+}
+
+div.product-options {
+	padding-bottom: 10px;
+	padding-left: 20px;
+	padding-right: 20px;
+	font-family: 'Roboto Condensed', Helvetica, Times New Roman, sans-serif;
+	font-size: 1.0em;
+	color: #a0a0a0;
+	text-align: center;
 }
