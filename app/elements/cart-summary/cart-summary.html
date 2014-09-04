@@ -1,0 +1,22 @@
+<link rel="import" href="/bower_components/core-localstorage/core-localstorage.html">
+<polymer-element name="cart-summary" >
+	<template>
+		<link rel="stylesheet" href="cart-summary.css">
+		
+		<core-localstorage name="cart" value="{{mycart}}"></core-localstorage>
+			<div class="quick-checkout">
+				<span class="cart-summary-amount">R${{ mycart | currency(2, 3, '.', ',') }}</span>
+				<a href="#" class="button">Checkout Rápido</a>
+			</div>
+	</template>
+</polymer-element>
+<script>
+
+Polymer('cart-summary', {
+	mycart : +100.00,
+	ready: function() {
+		this.mycart = +200.00;
+		this.innerHTML = this.value;
+	}
+  });
+</script>

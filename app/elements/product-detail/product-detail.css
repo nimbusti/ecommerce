@@ -22,7 +22,7 @@ div.product-title {
 	text-align: center;
 }
 
-p.product-price {
+div.product-price {
 	text-transform: uppercase;
 	font-family: "proxima-nova",Helvetica,Arial,sans-serif;
 	font-size: 20px;
@@ -32,6 +32,7 @@ p.product-price {
 	text-rendering: optimizeLegibility;
 	text-shadow: 0 0 1px rgba(255,255,255,0.01);
 	text-align: center;
+	padding-bottom: 20px;
 }
 
 .product-price-final {
@@ -103,3 +104,46 @@ div.product-options {
 	color: #a0a0a0;
 	text-align: center;
 }
+
+div.product-quantity {
+	text-align: center;
+	margin-bottom: 20px;
+}
+
+div.products-related {
+	padding-top: 20px;
+	padding-bottom: 10px;
+	padding-left: 2px;
+	padding-right: 2px;
+	background: #f7f7ed;
+}
+
+p.related-label {
+	font-size: 0.5em;
+	text-transform: uppercase;
+	padding-left: 10px;
+	text-align: center;
+}
+
+paper-button {
+	width: 100%;
+	margin-bottom: 20px;
+}
+
+paper-button[raisedButton].colored {
+	background: #4285f4;
+	color: #fff;
+}
+
+paper-button[raisedButton].colored.hover:hover {
+	background: #3367d6;
+}
+
+paper-button[raisedButton].colored::shadow #ripple {
+	color: #2a56c6;
+}
+
+	paper-button[raisedButton].colored::shadow #focusBg {
+background: #3367d6;
+}
+    

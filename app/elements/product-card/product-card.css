@@ -23,14 +23,24 @@ div.title {
 	overlay: invisible;
 }
 
-div.price {
+div.product-price {
+	text-transform: uppercase;
 	font-family: "proxima-nova",Helvetica,Arial,sans-serif;
-	font-size: 20px;
+	font-size: 16px;
 	font-weight: 300;
 	line-height: 1.2em;
 	padding-top: 10px;
 	text-rendering: optimizeLegibility;
 	text-shadow: 0 0 1px rgba(255,255,255,0.01);
+	text-align: center;
+	padding-bottom: 20px;
+}
+
+.product-price-final {
 	color: green;
-	float: right;
+}
+
+.product-price-original {
+	color: red;
+	text-decoration: line-through;
 }

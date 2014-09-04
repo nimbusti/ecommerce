@@ -1,0 +1,43 @@
+div.quick-checkout {
+	text-align: center;
+	padding: 0 0 12px;
+	margin-bottom: 20px;
+	border-bottom: 1px solid #ccc;
+}
+
+a:-webkit-any-link {
+	text-decoration: none;
+	color: #666;
+}
+	
+.quick-checkout .cart-summary-amount {
+	text-transform: uppercase;
+	font-family: "proxima-nova",Helvetica,Arial,sans-serif;
+	font-size: 16px;
+	font-weight: 300;
+	line-height: 1.2em;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	text-rendering: optimizeLegibility;
+	text-shadow: 0 0 1px rgba(255,255,255,0.01);
+	text-align: center;
+	color: green;
+}
+
+.quick-checkout .button {
+	-webkit-border-radius: 30px;
+	-moz-border-radius: 30px;
+	border-radius: 30px;
+	margin-top: 10px;
+	background-color: #e83d16;
+	text-transform: uppercase;
+	height: 30px;
+	line-height: 30px;
+	padding-top: 1px;
+	width: 190px;
+	font-family: "proxima-nova", sans-serif;
+	font-weight: 600;
+	font-size: 14px;
+	color: #FFF;
+	display: inline-block;
+}

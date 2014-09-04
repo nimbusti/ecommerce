@@ -16,6 +16,7 @@
   <link rel="import" href="bower_components/core-icon-button/core-icon-button.html">
   <link rel="import" href="bower_components/core-toolbar/core-toolbar.html"> 
   <link rel="import" href="bower_components/core-animated-pages/core-animated-pages.html">
+  <link rel="import" href="bower_components/core-signals/core-signals.html">
 <style>
 
     body {
@@ -60,37 +61,6 @@
 		float: left;
 	}
 	
-	.quick-checkout {
-		text-align: center;
-		padding: 0 0 12px;
-		margin-bottom: 20px;
-		border-bottom: 1px solid #ccc;
-	}
-	
-	.quick-checkout .title {
-		font-size: 18px;
-		display: block;
-		color: #666;
-	}
-	
-	.quick-checkout .button {
-		-webkit-border-radius: 30px;
-		-moz-border-radius: 30px;
-		border-radius: 30px;
-		margin-top: 10px;
-		background-color: #e83d16;
-		text-transform: uppercase;
-		height: 30px;
-		line-height: 30px;
-		padding-top: 1px;
-		width: 190px;
-		font-family: "proxima-nova",sans-serif;
-		font-weight: 600;
-		font-size: 14px;
-		color: #FFF;
-		display: inline-block;
-	}
-
 	.category-links {
 		margin: 0;
 	}
@@ -132,7 +102,6 @@
   </head>
 
 <body unresolved fullbleed vertical layout>
-
   <core-drawer-panel>
   <core-header-panel drawer>
     <core-toolbar class="red-theme">
@@ -142,10 +111,7 @@
 		</core-field>
 	</core-toolbar>
     	<section class="cart-sidebar">
-    		<div class="quick-checkout">
-    			<span class="title">5 Produtos - R$300,00</span>
-    			<a href="#" class="button">Checkout Rápido</a>
-    		</div>
+			<cart-summary></cart-summary>
     		<div class="category-links">
     			<h6>Filtrar por Categoria</h6>
     			<ul id="filtra-categoria">

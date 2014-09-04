@@ -5,7 +5,12 @@
 	<link rel="stylesheet" href="product-card.css">
 	<div class="pimage"><img src="{{product.image}}" height="150px;"/></div>
 	<div class="title">{{product.title}}</div>
-		<div class="price">R${{product.price}},00</div>
+  	<template if="{{ +product.discount_amount || +product.discount_percent }}">
+  		<div class="product-price">De <span class="product-price-original">R${{ product.price }}</span> por <span class="product-price-final">R${{ +product.discount_amount > 0 ? product.price - product.discount_amount : (+product.discount_percent > 0 ? product.price * ( 1 - product.discount_percent / 100) : +product.price) | currency(2, 3, '.', ',')}}</span></div>
+	</template>
+	  	<template if="{{ +product.discount_amount === 0 && +product.discount_percent === 0 }}">
+  		<div class="product-price"><span class="product-price-final">R${{ +product.price | currency(2, 3, '.', ',') }}</span></div>
+	</template>
 </template> 
 <script>
 	Polymer('product-card', {});
