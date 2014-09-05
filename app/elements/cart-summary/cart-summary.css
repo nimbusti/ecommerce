@@ -24,6 +24,19 @@ a:-webkit-any-link {
 	color: green;
 }
 
+.quick-checkout .cart-summary-text {
+	font-family: "proxima-nova",Helvetica,Arial,sans-serif;
+	font-size: 16px;
+	font-weight: 300;
+	line-height: 1.2em;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	text-rendering: optimizeLegibility;
+	text-shadow: 0 0 1px rgba(255,255,255,0.01);
+	text-align: center;
+	color: green;
+}
+
 .quick-checkout .button {
 	-webkit-border-radius: 30px;
 	-moz-border-radius: 30px;

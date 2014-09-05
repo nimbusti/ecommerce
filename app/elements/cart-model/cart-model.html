@@ -5,15 +5,17 @@
 </template>
   <script>
     Polymer('cart-model', {
-		useRaw: true,
 		attached: function() {
-			this.$.storage.value = 0.00;
+			this.$.storage.value = {"total": 0.00, "nitems": 0, "items": []};
 			this.$.storage.save();
 		},
 		addtocartSignal: function(e, detail, sender) {
-
-			this.mycart += detail.price;
-			this.fire('core-signal', {name: "cartchanged", data: { cart: this.mycart }});
+			this.$.storage.load();
+			var cart = this.$.storage.value;
+			cart.total += detail.price;
+			cart.nitems++;
+			this.$.storage.value = cart;
+			this.fire('core-signal', {name: "cartchanged", data: {  }});
 		}
     });
   </script>

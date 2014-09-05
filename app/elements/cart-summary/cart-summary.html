@@ -3,10 +3,12 @@
 		<link rel="stylesheet" href="cart-summary.css">	
 		<core-signals on-core-signal-cartchanged="{{cartChangedSignal}}"></core-signals>
 		<core-localstorage id="storage" name="cart" value="{{value}}"></core-localstorage>
+		<template if="{{ value.nitems > 0 }}">
 			<div class="quick-checkout">
-				<span class="cart-summary-amount">R${{ +value | currency(2, 3, '.', ',') }}</span>
+				<span class="cart-summary-text">{{ value.nitems }} itens no total de </span><span class="cart-summary-amount">R${{ +value.total | currency(2, 3, '.', ',') }}</span>
 				<a href="#" class="button">Checkout Rápido</a>
 			</div>
+		</template>
 	</template>
 </polymer-element>
 <script>

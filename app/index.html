@@ -14,7 +14,8 @@
   <link rel="import" href="bower_components/paper-icon-button/paper-icon-button.html">
   <link rel="import" href="bower_components/core-icons/core-icons.html">
   <link rel="import" href="bower_components/core-icon-button/core-icon-button.html">
-  <link rel="import" href="bower_components/core-toolbar/core-toolbar.html"> 
+  <link rel="import" href="bower_components/core-toolbar/core-toolbar.html">
+  <link rel="import" href="bower_components/paper-fab/paper-fab.html">
   <link rel="import" href="bower_components/core-animated-pages/core-animated-pages.html">
   <link rel="import" href="bower_components/core-signals/core-signals.html">
   <link rel="import" href="bower_components/core-localstorage/core-localstorage.html">
@@ -98,6 +99,15 @@
 	.category-links .defaultButton {
 		font-weight: bold;
 	}
+	
+	paper-fab.yellow {
+		background: #ffeb3b;
+		color: #000;
+		position: absolute;
+		top: 32px;
+		right: 5%;
+		z-index: 1;
+	}
     </style>
 
   </head>
@@ -113,10 +123,7 @@
 		</core-field>
 	</core-toolbar>
     	<section class="cart-sidebar">
-    		
 			<cart-summary></cart-summary>
-			
-			
     		<div class="category-links">
     			<h6>Filtrar por Categoria</h6>
     			<ul id="filtra-categoria">
@@ -132,7 +139,8 @@
   <core-header-panel main>
     <core-toolbar class="red-theme">
     <paper-icon-button id="menuicon" icon="menu" onclick="document.querySelector('core-drawer-panel').togglePanel();"></paper-icon-button>
-    <div> LOJA VIRTUAL </div>
+    <div flex> LOJA VIRTUAL </div>
+    <paper-fab class="yellow" icon="shopping-cart" id="carticon"></paper-fab>
     </core-toolbar>
 	<products-grid></products-grid>
   </core-header-panel>
