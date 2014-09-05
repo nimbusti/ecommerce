@@ -17,6 +17,7 @@
   <link rel="import" href="bower_components/core-toolbar/core-toolbar.html"> 
   <link rel="import" href="bower_components/core-animated-pages/core-animated-pages.html">
   <link rel="import" href="bower_components/core-signals/core-signals.html">
+  <link rel="import" href="bower_components/core-localstorage/core-localstorage.html">
 <style>
 
     body {
@@ -102,6 +103,7 @@
   </head>
 
 <body unresolved fullbleed vertical layout>
+<cart-model></cart-model>
   <core-drawer-panel>
   <core-header-panel drawer>
     <core-toolbar class="red-theme">
@@ -111,7 +113,10 @@
 		</core-field>
 	</core-toolbar>
     	<section class="cart-sidebar">
+    		
 			<cart-summary></cart-summary>
+			
+			
     		<div class="category-links">
     			<h6>Filtrar por Categoria</h6>
     			<ul id="filtra-categoria">
@@ -132,5 +137,8 @@
 	<products-grid></products-grid>
   </core-header-panel>
 </core-drawer-panel>
+<script>
+
+</script>
 </body>
 </html>

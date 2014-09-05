@@ -1,15 +1,19 @@
 <polymer-element name="cart-model">
 <template>
 	<core-signals on-core-signal-addtocart="{{addtocartSignal}}"></core-signals>
-	<core-localstorage name="cart" value="{{mycart}}"></core-localstorage>
+	<core-localstorage id="storage" name="cart" value="{{mycart}}"></core-localstorage>
 </template>
   <script>
     Polymer('cart-model', {
 		useRaw: true,
-	
+		attached: function() {
+			this.$.storage.value = 0.00;
+			this.$.storage.save();
+		},
 		addtocartSignal: function(e, detail, sender) {
-			alert('Passou');
+
 			this.mycart += detail.price;
+			this.fire('core-signal', {name: "cartchanged", data: { cart: this.mycart }});
 		}
     });
   </script>

@@ -16,7 +16,16 @@
       <template repeat="{{item in items}}">
         <section vertical layout>
         <div class="container-fluid">
-          <div class="view" flex horizontal center center-justified layout hero-id="item-{{item.index}}" hero?="{{$.pages.selected === item.index + 1 || $.pages.selected === 0}}"><span cross-fade><product-detail product="[[item]]"></product-detail></span></div>	
+		<div class="row">
+		<div class="col-xs-12">
+		<core-icon-button icon= 'arrow-back' on-tap="{{back}}"></core-icon-button>
+		</div>
+		</div>
+          <div class="view" flex horizontal center center-justified layout hero-id="item-{{item.index}}" hero?="{{$.pages.selected === item.index + 1 || $.pages.selected === 0}}">
+          <span cross-fade>
+          <product-detail product="[[item]]"></product-detail>
+          </span>
+          </div>
 		<div class="row">
 		<div class="col-xs-12">
 		<core-icon-button icon= 'arrow-back' on-tap="{{back}}"></core-icon-button>
