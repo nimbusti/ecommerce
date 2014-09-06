@@ -99,18 +99,9 @@
 	.category-links .defaultButton {
 		font-weight: bold;
 	}
-	
-	paper-fab.yellow {
-		background: #ffeb3b;
-		color: #000;
-		position: absolute;
-		top: 32px;
-		right: 5%;
-		z-index: 1;
-	}
-    </style>
+</style>
 
-  </head>
+</head>
 
 <body unresolved fullbleed vertical layout>
 <cart-model></cart-model>
@@ -140,7 +131,7 @@
     <core-toolbar class="red-theme">
     <paper-icon-button id="menuicon" icon="menu" onclick="document.querySelector('core-drawer-panel').togglePanel();"></paper-icon-button>
     <div flex> LOJA VIRTUAL </div>
-    <paper-fab class="yellow" icon="shopping-cart" id="carticon"></paper-fab>
+    <shopping-cart></shopping-cart>
     </core-toolbar>
 	<products-grid></products-grid>
   </core-header-panel>

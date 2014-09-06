@@ -5,7 +5,7 @@
 		<core-localstorage id="storage" name="cart" value="{{value}}"></core-localstorage>
 		<template if="{{ value.nitems > 0 }}">
 			<div class="quick-checkout">
-				<span class="cart-summary-text">{{ value.nitems }} itens no total de </span><span class="cart-summary-amount">R${{ +value.total | currency(2, 3, '.', ',') }}</span>
+				<span class="cart-summary-text">{{ value.nitems }} produto(s) no total de </span><span class="cart-summary-amount">R${{ +value.total | currency(2, 3, '.', ',') }}</span>
 				<a href="#" class="button">Checkout Rápido</a>
 			</div>
 		</template>
@@ -14,6 +14,9 @@
 <script>
 
 Polymer('cart-summary', {
+	attached: function() {
+		this.$.storage.async('load');
+	},
 	cartChangedSignal: function(e, detail, sender) {
 		this.$.storage.async('load');
 	}

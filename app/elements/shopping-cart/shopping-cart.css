@@ -1,0 +1,8 @@
+	paper-fab.yellow {
+		background: #ffeb3b;
+		color: #000;
+		position: absolute;
+		top: 32px;
+		right: 5%;
+		z-index: 1;
+	}
