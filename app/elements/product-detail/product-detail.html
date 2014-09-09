@@ -2,6 +2,7 @@
 <link rel="import" href="/bower_components/paper-radio-group/paper-radio-group.html">
 <link rel="import" href="/bower_components/paper-slider/paper-slider.html">
 <link rel="import" href="/bower_components/core-localstorage/core-localstorage.html">
+
 <polymer-element name="product-detail" attributes="product">
 <template>
 	<link rel="stylesheet" href="../../bower_components/bootstrap/dist/css/bootstrap.css" />
@@ -76,7 +77,8 @@
 			} else {
 				finalUnitPrice = +this.product.price;
 			}
-			this.fire('core-signal', {name: "addtocart", data: { title: this.product.title, price: finalUnitPrice}});		
+			this.fire('core-signal', {name: "addtocart", data: { title: this.product.title, price: finalUnitPrice}});
+			document.querySelector('#toast').show();
 		}
 	});
 </script>

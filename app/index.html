@@ -19,8 +19,8 @@
   <link rel="import" href="bower_components/core-animated-pages/core-animated-pages.html">
   <link rel="import" href="bower_components/core-signals/core-signals.html">
   <link rel="import" href="bower_components/core-localstorage/core-localstorage.html">
+  <link rel="import" href="bower_components/paper-toast/paper-toast.html">
 <style>
-
     body {
       font-family: sans-serif;
     }
@@ -99,11 +99,13 @@
 	.category-links .defaultButton {
 		font-weight: bold;
 	}
+	
 </style>
 
 </head>
 
 <body unresolved fullbleed vertical layout>
+<paper-toast id="toast" text="Produto adicionado ao carrinho."></paper-toast>
 <cart-model></cart-model>
   <core-drawer-panel>
   <core-header-panel drawer>
