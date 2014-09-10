@@ -58,6 +58,7 @@
 		border: 1px solid #e0e0e0;
 		border-radius: 20px;
 		background-color: #ffffff;
+        width: 100%;
 	}
 	
 	#searchField input {
@@ -132,56 +133,56 @@
 <cart-model></cart-model>
 <core-drawer-panel>
     <div drawer class="left-drawer">
-    <core-toolbar class="amazon-theme">
-    	<core-field id='searchField'> 
-			<core-icon icon="search" on-tap=""></core-icon>
-				<input placeholder="produto..." />
-		</core-field>
-	</core-toolbar>
-    	<section class="left-sidebar">
-    		<div class="category-links">
-    			<h6>Filtrar por Categoria</h6>
-    			<ul id="filtra-categoria">
-    				<li><a class="defaultButton" href="#">Todas</a></li>
-    				<li><a href="#">Eletros</a></li>
-    				<li><a href="#">Banho</a></li>
-    				<li><a href="#">Decoração</a></li>
-    				<li><a href="#">Cartões de Presente</a></li>		
-    			</ul>
-    		</div>
-    	</section> 
+        <core-toolbar class="amazon-theme">
+
+        </core-toolbar>
+        <section class="left-sidebar">
+            <div class="category-links">
+                <h6>Departamentos</h6>
+                <ul id="filtra-categoria">
+                    <li><a class="defaultButton" href="#">Eletros</a></li>
+                    <li><a href="#">Banho</a></li>
+                    <li><a href="#">Decoração</a></li>
+                    <li><a href="#">Cartões de Presente</a></li>
+                </ul>
+            </div>
+        </section>
     </div>
-    
+
     <core-drawer-panel main rightDrawer id="right-drawer" responsiveWidth="2000px">
-	<div drawer class="right-drawer">
-		<core-toolbar class="amazon-theme">
-		</core-toolbar>
-		<section class="left-sidebar">
-			
-    	</section>
-      </div>
+        <div drawer class="right-drawer">
+            <core-toolbar class="amazon-theme">
 
-    <div main>
-    <core-toolbar class="amazon-theme" justified>
-    <paper-icon-button id="menuicon" icon="menu" onclick="document.querySelector('core-drawer-panel').togglePanel();"></paper-icon-button>
-    <div flex> <img src="images/dular-logo-91x35.png" /></div>
-    <cart-summary></cart-summary>
-    <paper-icon-button id="rmenuicon" icon="menu" onclick="document.queryElementById('right-drawer').togglePanel();"></paper-icon-button>
-    </core-toolbar>
+            </core-toolbar>
+            <section class="left-sidebar">
 
-		<products-grid></products-grid>
+            </section>
+        </div>
 
-	</div>
+        <div main>
+            <core-toolbar class="amazon-theme">
+                <paper-icon-button id="menuicon" icon="menu" onclick="document.querySelector('core-drawer-panel').togglePanel();"></paper-icon-button>
+                <core-field id='searchField'>
+                    <core-icon icon="search" on-tap=""></core-icon>
+                    <input placeholder="produto..." />
+                </core-field>
+                <cart-summary></cart-summary>
+                <paper-icon-button id="rmenuicon" icon="menu" onclick="document.queryElementById('right-drawer').togglePanel();"></paper-icon-button>
+            </core-toolbar>
+
+            <products-grid></products-grid>
+
+        </div>
     </core-drawer-panel>
-  </core-drawer-panel>
+</core-drawer-panel>
 <script>
-	document.addEventListener('polymer-ready', function() {
-	  var navicon = document.getElementById('rmenuicon');
-	  var drawerPanel = document.getElementById('right-drawer');
-	  navicon.addEventListener('click', function() {
-	    drawerPanel.togglePanel();
-	  });
-	});
+    document.addEventListener('polymer-ready', function() {
+        var navicon = document.getElementById('rmenuicon');
+        var drawerPanel = document.getElementById('right-drawer');
+        navicon.addEventListener('click', function() {
+            drawerPanel.togglePanel();
+        });
+    });
 </script>
 </body>
 </html>
