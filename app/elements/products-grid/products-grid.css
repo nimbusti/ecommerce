@@ -34,26 +34,6 @@ core-animated-pages {
     overflow-y: auto;
 }
 
-polyfill-next-selector { content: '#tabsContainer'; }
-#tabsContainer ::content {
-    color: blue;
-}
-
-#tabsContainer {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    white-space: nowrap;
-}
-
-#selectionBar {
-    position: absolute;
-    height: 2px;
-    bottom: 0;
-    left: 0;
-    width: 0;
-    background-color: #000;
-    transition: width, left;
+paper-tabs::shadow #selectionBar {
+    background-color: #ff4081;
 }
