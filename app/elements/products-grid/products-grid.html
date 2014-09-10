@@ -1,6 +1,7 @@
 <polymer-element name="products-grid">
     <template>
     <link rel="stylesheet" href="products-grid.css">
+ 
     <core-animated-pages id="pages" flex selected="0" on-core-animated-pages-transition-end="{{transitionend}}" transitions="cross-fade-all hero-transition">
       <section vertical layout>
         <div id="container" flex horizontal wrap around-justified layout hero-p>
@@ -31,6 +32,7 @@
         </section>
       </template>
     </core-animated-pages>
+
     </template>
   <script>
   Polymer('products-grid', {

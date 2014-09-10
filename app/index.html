@@ -44,7 +44,16 @@
       fill: #f1f1f1;
       z-index: 10;
     }
-
+    
+    core-toolbar.amazon-theme {
+		background-image: url("/images/amazon.png");
+		background-position: 0 -724px;
+		background-repeat: repeat-x;
+		background-color: transparent;
+      	color: #000;
+      	z-index: 10;
+    }
+    
     #searchField {
 		border: 1px solid #e0e0e0;
 		border-radius: 20px;
@@ -56,8 +65,7 @@
 		vertical-align: middle;
 	}
 	
-	.cart-sidebar {
-		background-color: #eee;
+	.left-sidebar {
 		padding: 14px 14px 0;
 		width: 90%;
 		float: left;
@@ -100,23 +108,37 @@
 		font-weight: bold;
 	}
 	
+	.left-drawer {
+		background-color: #eee;
+	}
+	
+	.right-drawer {
+		background-color: #eee;
+	}
+	
+	.logo-left {
+		align: "left";
+	}
+	
+	.logo-center {
+		text-align: "center";
+	}
 </style>
 
 </head>
 
-<body unresolved fullbleed vertical layout>
+<body unresolved horizontal layout>
 <paper-toast id="toast" text="Produto adicionado ao carrinho."></paper-toast>
 <cart-model></cart-model>
-  <core-drawer-panel>
-  <core-header-panel drawer>
-    <core-toolbar class="red-theme">
+<core-drawer-panel>
+    <div drawer class="left-drawer">
+    <core-toolbar class="amazon-theme">
     	<core-field id='searchField'> 
 			<core-icon icon="search" on-tap=""></core-icon>
 				<input placeholder="produto..." />
 		</core-field>
 	</core-toolbar>
-    	<section class="cart-sidebar">
-			<cart-summary></cart-summary>
+    	<section class="left-sidebar">
     		<div class="category-links">
     			<h6>Filtrar por Categoria</h6>
     			<ul id="filtra-categoria">
@@ -127,19 +149,39 @@
     				<li><a href="#">Cartões de Presente</a></li>		
     			</ul>
     		</div>
+    	</section> 
+    </div>
+    
+    <core-drawer-panel main rightDrawer id="right-drawer" responsiveWidth="2000px">
+	<div drawer class="right-drawer">
+		<core-toolbar class="amazon-theme">
+		</core-toolbar>
+		<section class="left-sidebar">
+			
     	</section>
- </core-header-panel>
-  <core-header-panel main>
-    <core-toolbar class="red-theme">
-    <paper-icon-button id="menuicon" icon="menu" onclick="document.querySelector('core-drawer-panel').togglePanel();"></paper-icon-button>
-    <div flex> LOJA VIRTUAL </div>
-    <shopping-cart></shopping-cart>
-    </core-toolbar>
-	<products-grid></products-grid>
-  </core-header-panel>
-</core-drawer-panel>
-<script>
+      </div>
 
+    <div main>
+    <core-toolbar class="amazon-theme" justified>
+    <paper-icon-button id="menuicon" icon="menu" onclick="document.querySelector('core-drawer-panel').togglePanel();"></paper-icon-button>
+    <div flex> <img src="images/dular-logo-91x35.png" /></div>
+    <cart-summary></cart-summary>
+    <paper-icon-button id="rmenuicon" icon="menu" onclick="document.queryElementById('right-drawer').togglePanel();"></paper-icon-button>
+    </core-toolbar>
+
+		<products-grid></products-grid>
+
+	</div>
+    </core-drawer-panel>
+  </core-drawer-panel>
+<script>
+	document.addEventListener('polymer-ready', function() {
+	  var navicon = document.getElementById('rmenuicon');
+	  var drawerPanel = document.getElementById('right-drawer');
+	  navicon.addEventListener('click', function() {
+	    drawerPanel.togglePanel();
+	  });
+	});
 </script>
 </body>
 </html>

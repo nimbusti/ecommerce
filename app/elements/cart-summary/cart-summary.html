@@ -5,8 +5,7 @@
 		<core-localstorage id="storage" name="cart" value="{{value}}"></core-localstorage>
 		<template if="{{ value.nitems > 0 }}">
 			<div class="quick-checkout">
-				<span class="cart-summary-text">{{ value.nitems }} produto(s) no total de </span><span class="cart-summary-amount">R${{ +value.total | currency(2, 3, '.', ',') }}</span>
-				<a href="#" class="button">Checkout Rápido</a>
+				<core-icon icon="shopping-cart"></core-icon> <span class="cart-summary-text">{{ value.nitems }} produto(s) no total de </span><span class="cart-summary-amount">R${{ +value.total | currency(2, 3, '.', ',') }}</span>
 			</div>
 		</template>
 	</template>
