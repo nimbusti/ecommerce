@@ -1,0 +1,23 @@
+<polymer-element name="categories-hmenu">
+	<template>
+		<link rel="stylesheet" href="categories-hmenu.css">
+		<paper-tabs id="categories" class="pink" selected="0" noink>
+			<paper-tab>Ofertas</paper-tab>
+			<paper-tab>cozinha</paper-tab>
+			<paper-tab>eletros</paper-tab>
+			<paper-tab>decoração</paper-tab>
+			<paper-tab>banho</paper-tab>
+			<paper-tab>cama</paper-tab>
+			<paper-tab>móveis</paper-tab>
+			<paper-tab>complementos</paper-tab>
+			<paper-tab>gift cards</paper-tab>
+		</paper-tabs>
+	</template>
+  <script>
+    Polymer('categories-hmenu', {
+    	attached: function() {
+    		this.$.categories.nostretch = true;
+    	}
+    });
+  </script>
+</polymer-element>

@@ -2,7 +2,7 @@
 <html>
 
 <head>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
   <script src="bower_components/platform/platform.js"></script>
 
   <!-- build:vulcanized elements/elements.vulcanized.html -->
@@ -20,6 +20,7 @@
   <link rel="import" href="bower_components/core-signals/core-signals.html">
   <link rel="import" href="bower_components/core-localstorage/core-localstorage.html">
   <link rel="import" href="bower_components/paper-toast/paper-toast.html">
+  <link rel="import" href="bower_components/paper-tabs/paper-tabs.html">
 <style>
     body {
       font-family: sans-serif;
@@ -130,7 +131,6 @@
 	core-icon {
 		opacity: 0.2;
 	}
-
 </style>
 
 </head>
@@ -176,6 +176,7 @@
 				<input placeholder="O que você está procurando?" />
 		</core-field>
     </core-toolbar>
+	<categories-hmenu></categories-hmenu>
 		<products-grid></products-grid>
 
 	</div>
