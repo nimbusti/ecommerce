@@ -20,6 +20,7 @@
   <link rel="import" href="bower_components/core-signals/core-signals.html">
   <link rel="import" href="bower_components/core-localstorage/core-localstorage.html">
   <link rel="import" href="bower_components/paper-toast/paper-toast.html">
+  <link rel="import" href="bower_components/paper-tabs/paper-tabs.html">
 <style>
     body {
       font-family: sans-serif;
@@ -138,7 +139,7 @@
 <body unresolved horizontal layout>
 <paper-toast id="toast" text="Produto adicionado ao carrinho."></paper-toast>
 <cart-model></cart-model>
-<core-drawer-panel>
+<core-drawer-panel responsiveWidth="2000px">
     <div drawer class="left-drawer">
     <core-toolbar class="amazon-theme">
 	</core-toolbar>
@@ -175,7 +176,12 @@
 				<input placeholder="O que você está procurando?" />
 		</core-field>
     </core-toolbar>
-		<products-grid></products-grid>
+		<products-grid>
+            <paper-tabs id="tabs" selected="all" self-end>
+                <paper-tab name="all">All</paper-tab>
+                <paper-tab name="favorites">Favorites</paper-tab>
+            </paper-tabs>
+		</products-grid>
 
 	</div>
     </core-drawer-panel>
