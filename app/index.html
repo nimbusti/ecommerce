@@ -3,7 +3,7 @@
 
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-  <script src="bower_components/platform/platform.js"></script>
+	<script src="bower_components/platform/platform.js"></script>
 
   <!-- build:vulcanized elements/elements.vulcanized.html -->
   <link rel="import" href="elements/elements.html">
@@ -55,6 +55,12 @@
       	color: #000;
       	z-index: 10;
       	text-align: center;
+    }
+    
+    core-toolbar.cart-theme {
+		background-color: white;
+		height: 104px;
+      	color: #e7e7e7;
     }
     
     #searchField {
@@ -156,7 +162,7 @@
 <body unresolved horizontal layout>
 <paper-toast id="toast" text="Produto adicionado ao carrinho."></paper-toast>
 <cart-model></cart-model>
-<core-drawer-panel responsiveWidth="2000px">
+<core-drawer-panel responsiveWidth="640px">
     <div drawer class="left-drawer">
     <core-toolbar class="amazon-theme">
 	</core-toolbar>
@@ -175,10 +181,9 @@
     
     <core-drawer-panel main rightDrawer id="right-drawer" responsiveWidth="2000px">
 	<div drawer class="right-drawer">
-		<core-toolbar class="amazon-theme">
-		</core-toolbar>
-		<section class="left-sidebar">
-			
+
+		<section class="right-sidebar">
+			<shopping-cart></shopping-cart>
     	</section>
       </div>
 
@@ -187,7 +192,7 @@
     <paper-icon-button id="menuicon" icon="menu" onclick="document.querySelector('core-drawer-panel').togglePanel();"></paper-icon-button>
     <div flex> <img src="images/dular-logo-91x35.png" /></div>
     <cart-summary></cart-summary>
-    <paper-icon-button id="rmenuicon" icon="menu" onclick="document.queryElementById('right-drawer').togglePanel();"></paper-icon-button>
+    <paper-icon-button id="rmenuicon" icon="shopping-cart" onclick="document.queryElementById('right-drawer').togglePanel();"></paper-icon-button>
    	<core-field class="bottom fit" id='searchField'>
 			<core-icon icon="search" on-tap=""></core-icon>
 				<input placeholder="O que você está procurando?" />
@@ -216,6 +221,10 @@
 	    drawerPanel.togglePanel();
 	  });
 	});
+	document.addEventListener('core-responsive-change', function(e, detail, sender) {
+		  var tabmenu = document.getElementById('tabs');
+			tabmenu.hidden = document.querySelector('core-drawer-panel').narrow;
+		});
 </script>
 </body>
 </html>

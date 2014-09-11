@@ -1,7 +1,17 @@
 <polymer-element name="shopping-cart">
 	<template>
+		<link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.css" />
 		<link rel="stylesheet" href="shopping-cart.css">
-		<div class="hero2" hero-id="foo" hero>teste</div>
+		
+		<div class="container fluid">
+			<div class="row">
+				<div class="col-sm-12"><p class="cart-title">Seu Carrinho</p></div>
+			</div>
+			<div class="row">
+				<div class="col-sm-1 images-block"><img src="/images/krups.jpg" alt="Image" class="img-responsive img-thumbnail" /></div>
+				<div class="col-sm-11 product-description">teste</div>
+			</div>
+		</div>
 	</template>
   <script>
     Polymer('shopping-cart', {
