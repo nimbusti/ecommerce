@@ -5,6 +5,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<script src="bower_components/platform/platform.js"></script>
 	<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+	<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.css" />
 
   <!-- build:vulcanized elements/elements.vulcanized.html -->
   <link rel="import" href="elements/elements.html">
@@ -91,6 +92,7 @@
 		padding: 14px 14px 0;
 		width: 90%;
 		float: left;
+		margin-top: 100px;
 	}
 	
 	.category-links {
@@ -141,27 +143,6 @@
 	core-icon {
 		opacity: 0.2;
 	}
-
-    paper-tabs {
-      background-color: white;
-      box-shadow: 0px 3px 2px rgba(0, 0, 0, 0.2);
-    }
-    
-    paper-tabs {
-      box-shadow: none;
-    }
-    
-    paper-tabs[noink][nobar] paper-tab.core-selected {
-
-    }
-    
-    paper-tab {
-    	text-transform: uppercase;
-    }
-    
-    paper-tabs::shadow #selectionBar {
-        background-color: #e01f12;
-    }
 </style>
 
 </head>
@@ -171,10 +152,17 @@
 <cart-model></cart-model>
 <core-drawer-panel responsiveWidth="2000px">
     <div drawer class="left-drawer">
-    <core-toolbar class="amazon-theme">
-	</core-toolbar>
     	<section class="left-sidebar">
     		<div class="category-links">
+    			<div class="hidden-md hidden-lg">
+    				<h6>Categorias</h6>
+    				<ul id="filtra-categoria">
+    					<li><a class="defaultButton" href="#">Eletros</a></li>
+    					<li><a href="#">Banho</a></li>
+    					<li><a href="#">Decoração</a></li>
+    					<li><a href="#">Cartões de Presente</a></li>		
+    				</ul>
+    			</div>
     			<h6>Departamentos</h6>
     			<ul id="filtra-categoria">
     				<li><a class="defaultButton" href="#">Eletros</a></li>
@@ -207,19 +195,7 @@
     <paper-icon-button id="rmenuicon" icon="shopping-cart" onclick="document.queryElementById('right-drawer').togglePanel();"></paper-icon-button>
 
     </core-toolbar>
-    <div class=".hidden-xs .hidden-sm .hidden-md">
-		<paper-tabs id="categories" selected="0" noink>
-			<paper-tab>Ofertas</paper-tab>
-			<paper-tab>cozinha</paper-tab>
-			<paper-tab>eletros</paper-tab>
-			<paper-tab>decoração</paper-tab>
-			<paper-tab>banho</paper-tab>
-			<paper-tab>cama</paper-tab>
-			<paper-tab>móveis</paper-tab>
-			<paper-tab>complementos</paper-tab>
-			<paper-tab>gift cards</paper-tab>
-		</paper-tabs>
-	</div>
+	<categories-hmenu></categories-hmenu>
 	<products-grid></products-grid>
 
 	</div>
