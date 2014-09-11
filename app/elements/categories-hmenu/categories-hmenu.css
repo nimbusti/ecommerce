@@ -15,6 +15,6 @@
     	text-transform: uppercase;
     }
     
-    paper-tabs.pink::shadow #selectionBar {
-      background-color: #ff4081;
+    paper-tabs::shadow #selectionBar {
+        background-color: #e01f12;
     }
