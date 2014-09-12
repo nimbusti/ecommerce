@@ -6,6 +6,7 @@
 	<script src="bower_components/platform/platform.js"></script>
 	<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
 	<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.css" />
+    <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/1.5.2/css/ionicons.min.css" />
 
   <!-- build:vulcanized elements/elements.vulcanized.html -->
   <link rel="import" href="elements/elements.html">
@@ -23,131 +24,22 @@
   <link rel="import" href="bower_components/core-localstorage/core-localstorage.html">
   <link rel="import" href="bower_components/paper-toast/paper-toast.html">
   <link rel="import" href="bower_components/paper-tabs/paper-tabs.html">
-<style>
-    body {
-      font-family: sans-serif;
-    }
 
-    #container {
-      overflow: auto;
-    }
-    
-	core-drawer-panel, core-header-panel {
-	    height: 100%;
-	}
+  <link rel="stylesheet" href="styles/main.css" />
 
-    a:-webkit-any-link {
-		text-decoration: none;
-		color: #666;
-	}
-
-    core-toolbar.red-theme {
-      background-color: #e01f12;
-      color: #f1f1f1;
-      fill: #f1f1f1;
-      z-index: 10;
-    }
-    
-    core-toolbar.amazon-theme {
-		background-image: url("/images/amazon.png");
-		background-position: 0 -724px;
-		background-repeat: repeat-x;
-		background-color: transparent;
-		height: 64px;
-      	color: #000;
-      	z-index: 10;
-      	text-align: center;
-    }
-    
-    core-toolbar.cart-theme {
-		background-color: white;
-		height: 104px;
-      	color: #e7e7e7;
-    }
-    
-    #searchField {
-		border: 1px solid #e0e0e0;
-		border-radius: 4px;
-		margin-left: 10%;
-		background-color: #ffffff;
-		padding-left: 10px;
-		text-align: left;
-	}
-	
-	#searchField input {
-		border: none !important;
-		vertical-align: middle;
-		width: 60%;
-		font-family: "proxima-nova",Helvetica,Arial,sans-serif;
-		font-size: 12px;
-		font-weight: 300;
-		height: 18px;
-	}
-	
-	core-field#searchField.bottom.fit {
-		margin-bottom: 8px;
-	}
-	
-	.left-sidebar {
-		padding: 14px 14px 0;
-		width: 90%;
-		float: left;
-		margin-top: 100px;
-	}
-	
-	.category-links {
-		margin: 0;
-	}
-	
-	.category-links h6 {
-		font-size: 12px;
-		color: #999;
-		text-transform: uppercase;
-	}
-	
-	.category-links ul {
-		list-style-type: none;
-		padding: 0 0 14px;
-		width: 220px;
-		margin-left: 0px;
-		color: #555;
-	}
-	
-	.category-links ul a {
-		display: block;
-		font-size: 14px;
-		padding: 5px 0px 5px 14px;
-	}
-	
-	.category-links ul a:hover {
-		background-color:#fafafa
-	}
-	
-	.category-links .selectedButton {
-		background-color: #fafafa;
-		font-weight: bold;
-	}
-	
-	.category-links .defaultButton {
-		font-weight: bold;
-	}
-	
-	.left-drawer {
-		background-color: #eee;
-	}
-	
-	.right-drawer {
-		background-color: #eee;
-	}
-	
-	core-icon {
-		opacity: 0.2;
-	}
-</style>
 
 </head>
 
 <body unresolved horizontal layout>
+<header>
+    <h1><img src="http://www.dular.com.br/dular/images/logo.gif" height="60" alt="Dular" title="Dular" border="0"></h1>
+    <nav>
+        <div class="btn-group btn-group-xs hidden-xs hidden-sm">
+            <button class="btn btn-danger">Minha Conta</button>
+            <button class="btn btn-danger">Lista de Casamento</button>
+        </div>
+    </nav>
+</header>
 <paper-toast id="toast" text="Produto adicionado ao carrinho."></paper-toast>
 <cart-model></cart-model>
 <core-drawer-panel responsiveWidth="2000px">
@@ -155,13 +47,8 @@
     	<section class="left-sidebar">
     		<div class="category-links">
     			<div class="hidden-md hidden-lg">
-    				<h6>Categorias</h6>
-    				<ul id="filtra-categoria">
-    					<li><a class="defaultButton" href="#">Eletros</a></li>
-    					<li><a href="#">Banho</a></li>
-    					<li><a href="#">Decoração</a></li>
-    					<li><a href="#">Cartões de Presente</a></li>		
-    				</ul>
+    				<h6>Minha Conta</h6>
+                    <h6>Lista de Casamento</h6>
     			</div>
     			<h6>Departamentos</h6>
     			<ul id="filtra-categoria">
@@ -185,14 +72,19 @@
     <div main>
     <core-toolbar class="amazon-theme" justified>
     <paper-icon-button id="menuicon" icon="menu" onclick="document.querySelector('core-drawer-panel').togglePanel();"></paper-icon-button>
-    <div flex>
-   	<core-field id='searchField'>
+
+<!--   	<core-field id='searchField'>
 			<core-icon icon="search" on-tap=""></core-icon>
-			<input placeholder="O que você está procurando?" />
-	</core-field>
-    </div>
-    
-    <paper-icon-button id="rmenuicon" icon="shopping-cart" onclick="return document.queryElementById('right-drawer').togglePanel()"></paper-icon-button>
+			<input placeholder="O que você está procurando?" autofocus flex/>
+   	</core-field>-->
+
+        <div class="input-group" style="width: 60%;margin:0 auto">
+            <span class="input-group-addon"><i class="ion-android-search"></i></span>
+            <input type="text" class="form-control">
+        </div>
+
+    <cart-summary></cart-summary>
+    <paper-icon-button id="rmenuicon" icon="shopping-cart" onclick="document.queryElementById('right-drawer').togglePanel();"></paper-icon-button>
 
     </core-toolbar>
 	<categories-hmenu></categories-hmenu>
