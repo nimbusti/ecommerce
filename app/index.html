@@ -191,8 +191,8 @@
 			<input placeholder="O que você está procurando?" />
 	</core-field>
     </div>
-    <cart-summary></cart-summary>
-    <paper-icon-button id="rmenuicon" icon="shopping-cart" onclick="document.queryElementById('right-drawer').togglePanel();"></paper-icon-button>
+    
+    <paper-icon-button id="rmenuicon" icon="shopping-cart" onclick="return document.queryElementById('right-drawer').togglePanel()"></paper-icon-button>
 
     </core-toolbar>
 	<categories-hmenu></categories-hmenu>
