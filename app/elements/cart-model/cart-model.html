@@ -18,17 +18,14 @@
 			}
 		},
 		addtocartSignal: function(e, detail, sender) {
+			
 			this.$.storage.load();
-			var cart = JSON.parse(this.$.storage.value);
-			var newItem = '{ "title": "Liquidificador Delux", "price": "189.90", "quantity": 1}';
-			cart.items["003"] = JSON.parse(newItem);
-			var item1 = cart.items["001"];
-			console.log('title 001', item1.title);
-			var item2 = cart.items["002"];
-			console.log('title 002', item2.title);
-			var item3 = cart.items["003"];
-			console.log('title 003', item3.title);
-			console.log(cart);
+			var cart = this.$.storage.value;
+			var newItem = { SKU: detail.SKU, title: detail.title, price: detail.price, quantity: detail.quantity};
+			cart.push(newItem);
+			this.$.storage.value = cart;
+			this.$.storage.save();
+			this.fire('core-signal', {name: "cartchanged", data: {  }});
 		}
     });
   </script>

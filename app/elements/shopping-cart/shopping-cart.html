@@ -4,7 +4,7 @@
 		<link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.css" />
 		<link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap-theme.css" />
 		<core-signals on-core-signal-cartchanged="{{cartChangedSignal}}"></core-signals>
-		<core-localstorage id="storage" name="cart" value="{{value}}"></core-localstorage>
+		<core-localstorage id="storage" name="cart" value="{{ items }}"></core-localstorage>
 		<div class="container">
 			<div class="row">
 				<div class="col-xs-12"><p class="cart-title">Seu Carrinho</p></div>
@@ -13,7 +13,7 @@
 			<div class="row">
 				<div class="col-xs-4"><img src="/images/krups.jpg" alt="Image" class="img-responsive img-thumbnail" /></div>
 				<div class="col-xs-8 product-description">
-					1 x {{ item.title }}
+					{{ item.quantity }} x {{ item.title }}
 				</div>
 			</div>
 			</template>
@@ -29,12 +29,11 @@
   <script>
     Polymer('shopping-cart', {
     	ready: function() {
-			this.$.storage.load();
-			this.items = this.$.storage.value;
 
     	},
     	cartChangedSignal: function(e, detail, sender) {
-
+			this.$.storage.load();
+			this.items = this.$.storage.value;
     	}
       });
   </script>
