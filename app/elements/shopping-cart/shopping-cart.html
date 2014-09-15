@@ -3,22 +3,20 @@
 		<link rel="stylesheet" href="shopping-cart.css">
 		<link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.css" />
 		<link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap-theme.css" />
+		<core-signals on-core-signal-cartchanged="{{cartChangedSignal}}"></core-signals>
+		<core-localstorage id="storage" name="cart" value="{{value}}"></core-localstorage>
 		<div class="container">
 			<div class="row">
 				<div class="col-xs-12"><p class="cart-title">Seu Carrinho</p></div>
 			</div>
+			<template repeat="{{ item in items }}">
 			<div class="row">
 				<div class="col-xs-4"><img src="/images/krups.jpg" alt="Image" class="img-responsive img-thumbnail" /></div>
 				<div class="col-xs-8 product-description">
-					1 x Sanduicheira Compacta Collection
+					1 x {{ item.title }}
 				</div>
 			</div>
-			<div class="row">
-				<div class="col-xs-4"><img src="/images/krups.jpg" alt="Image" class="img-responsive img-thumbnail" /></div>
-				<div class="col-xs-8 product-description">
-					3 x Sanduicheira Compacta Collection
-				</div>
-			</div>
+			</template>
 			<div class="row cart-footer">
 				<div class="col-xs-4"><p class="cart-label">Total</p></div>
 				<div class="col-xs-8"><p class="cart-total">R$354,00</p></div>
@@ -30,6 +28,14 @@
 	</template>
   <script>
     Polymer('shopping-cart', {
-    });
+    	ready: function() {
+			this.$.storage.load();
+			this.items = this.$.storage.value;
+
+    	},
+    	cartChangedSignal: function(e, detail, sender) {
+
+    	}
+      });
   </script>
 </polymer-element>
