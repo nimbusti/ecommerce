@@ -1,4 +1,4 @@
-<polymer-element name="shopping-cart">
+<polymer-element name="shopping-cart" attributes="cep">
 	<template>
 		<link rel="stylesheet" href="shopping-cart.css">
 		<link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.css" />
@@ -20,15 +20,19 @@
 			</template>
 			<div class="row cart-footer">
 				<div class="col-xs-4"><p class="cart-label">Subtotal</p></div>
+				<div class="col-xs-8"><p class="cart-total">R${{ subtotal | currency(2, 3, '.', ',') }}</p></div>
+			</div>
+			<div class="row cart-shipping">
+				<div class="col-xs-12"><paper-input floatingLabel label="Informe seu CEP" pattern="^[0-9]{5}-[0-9]{3}$" error="Use o formato 99999-999" value="{{ cep }}"></paper-input></div>
+			</div>
+			<div class="row cart-shipping">
+				<div class="col-xs-4"><p class="cart-label">Frete</p></div>
+				<div class="col-xs-8"><p class="cart-total">R${{ frete | currency(2, 3, '.', ',') }}</p></div>
+			</div>
+			<div class="row cart-footer">
+				<div class="col-xs-4"><p class="cart-label">Total</p></div>
 				<div class="col-xs-8"><p class="cart-total">R${{ total | currency(2, 3, '.', ',') }}</p></div>
 			</div>
-				<div class="row">
-					<div class="col-xs-12"><paper-input floatingLabel label="Informe seu CEP"></paper-input></div>
-				</div>
-				<div class="row cart-shipping">
-					<div class="col-xs-4"><p class="cart-label">Frete</p></div>
-					<div class="col-xs-8"><p class="cart-total">R${{ total | currency(2, 3, '.', ',') }}</p></div>
-				</div>
 			<div class="checkout-button">
 				<paper-button class="colored" label="finalizar pedido" raisedButton on-click="{{ checkout }}"></paper-button>
 			</div>
@@ -43,25 +47,41 @@
   <script>
     Polymer('shopping-cart', {
     	total : 0,
+    	frete : 0,
     	ready: function() {
 			this.$.storage.load();
 			this.items = this.$.storage.value;
 			var arrayLength = this.items.length;
-			var total = 0;
+			var subtotal = 0;
 			for (var i = 0; i < arrayLength; i++) {
-				total += this.items[i].quantity * this.items[i].price;
+				subtotal += this.items[i].quantity * this.items[i].price;
 			}
-			this.total = total;
+			this.subtotal = subtotal;
+			this.total = subtotal + this.frete;
     	},
     	cartChangedSignal: function(e, detail, sender) {
 			this.$.storage.load();
 			this.items = this.$.storage.value;
 			var arrayLength = this.items.length;
-			var total = 0;
+			var subtotal = 0;
 			for (var i = 0; i < arrayLength; i++) {
-				total += this.items[i].quantity * this.items[i].price;
+				subtotal += this.items[i].quantity * this.items[i].price;
 			}
-			this.total = total;
+			this.subtotal = subtotal;
+			this.total = subtotal + this.frete;
+    	},
+    	cepChanged: function(oldValue, newValue) {
+    		if(newValue && newValue !== oldValue) {
+        		this.frete = this.randomIntFromInterval(17, 86);
+        		this.total = this.subtotal + this.frete;
+    		}
+    		if(newValue === '') {
+        		this.frete = 0;
+        		this.total = this.subtotal + this.frete;   			
+    		}
+    	},
+    	randomIntFromInterval: function (min, max) {
+    	    return Math.floor(Math.random()*(max-min+1)+min);
     	}
       });
   </script>
