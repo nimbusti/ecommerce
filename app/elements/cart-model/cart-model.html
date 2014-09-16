@@ -21,8 +21,19 @@
 			
 			this.$.storage.load();
 			var cart = this.$.storage.value;
-			var newItem = { SKU: detail.SKU, title: detail.title, price: detail.price, quantity: detail.quantity};
-			cart.push(newItem);
+			var arrayLength = cart.length;
+			var productInCart = false;
+			for (var i = 0; i < arrayLength; i++) {
+				if(cart[i].SKU === detail.SKU) {
+			    	cart[i].quantity += detail.quantity;
+			    	productInCart = true;
+			    	break;
+				}
+			}
+			if(!productInCart) {
+				var newItem = { SKU: detail.SKU, title: detail.title, price: detail.price, quantity: detail.quantity};
+				cart.push(newItem);
+			}
 			this.$.storage.value = cart;
 			this.$.storage.save();
 			this.fire('core-signal', {name: "cartchanged", data: {  }});
