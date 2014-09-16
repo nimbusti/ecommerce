@@ -6,6 +6,7 @@
 		<core-signals on-core-signal-cartchanged="{{cartChangedSignal}}"></core-signals>
 		<core-localstorage id="storage" name="cart" value="{{ items }}"></core-localstorage>
 		<div class="container">
+			<template if="{{ items.length > 0 }}">
 			<div class="row">
 				<div class="col-xs-12"><p class="cart-title">Seu Carrinho</p></div>
 			</div>
@@ -18,22 +19,49 @@
 			</div>
 			</template>
 			<div class="row cart-footer">
-				<div class="col-xs-4"><p class="cart-label">Total</p></div>
-				<div class="col-xs-8"><p class="cart-total">R$354,00</p></div>
+				<div class="col-xs-4"><p class="cart-label">Subtotal</p></div>
+				<div class="col-xs-8"><p class="cart-total">R${{ total | currency(2, 3, '.', ',') }}</p></div>
 			</div>
-		</div>
-		<div class="checkout-button">
-			<paper-button class="colored" label="finalizar pedido" raisedButton on-click="{{ checkout }}"></paper-button>
+				<div class="row">
+					<div class="col-xs-12"><paper-input floatingLabel label="Informe seu CEP"></paper-input></div>
+				</div>
+				<div class="row cart-shipping">
+					<div class="col-xs-4"><p class="cart-label">Frete</p></div>
+					<div class="col-xs-8"><p class="cart-total">R${{ total | currency(2, 3, '.', ',') }}</p></div>
+				</div>
+			<div class="checkout-button">
+				<paper-button class="colored" label="finalizar pedido" raisedButton on-click="{{ checkout }}"></paper-button>
+			</div>
+			</template>
+			<template if="{{ items.length == 0 }}">
+				<div class="row">
+					<div class="col-xs-12"><p class="cart-title">Seu Carrinho está vazio</p></div>
+				</div>				
+			</template>
 		</div>
 	</template>
   <script>
     Polymer('shopping-cart', {
+    	total : 0,
     	ready: function() {
-
+			this.$.storage.load();
+			this.items = this.$.storage.value;
+			var arrayLength = this.items.length;
+			var total = 0;
+			for (var i = 0; i < arrayLength; i++) {
+				total += this.items[i].quantity * this.items[i].price;
+			}
+			this.total = total;
     	},
     	cartChangedSignal: function(e, detail, sender) {
 			this.$.storage.load();
 			this.items = this.$.storage.value;
+			var arrayLength = this.items.length;
+			var total = 0;
+			for (var i = 0; i < arrayLength; i++) {
+				total += this.items[i].quantity * this.items[i].price;
+			}
+			this.total = total;
     	}
       });
   </script>

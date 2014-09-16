@@ -9,10 +9,7 @@
 			this.$.storage.load();
 			var cart = this.$.storage.value;
 			if(!cart) {
-				var cartContent = [
-								  { SKU: "001", title: "Cafeteira Xp 10 Krups", price: "189.90", quantity: 2},
-								  { SKU: "002", title: "Torradeira Inox", price: "189.90", quantity: 2}
-								  ];
+				var cartContent = [];
 				this.$.storage.value = cartContent;
 				this.$.storage.save();
 			}
