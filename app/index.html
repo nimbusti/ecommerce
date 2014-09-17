@@ -32,12 +32,10 @@
 
 <body unresolved horizontal layout>
 <header>
-    <h1><img src="http://www.dular.com.br/dular/images/logo.gif" height="60" alt="Dular" title="Dular" border="0"></h1>
+    <h1><img src="/images/dular-logo.gif" height="60" alt="Dular" title="Dular" border="0"></h1>
     <nav>
-        <div class="btn-group btn-group-xs hidden-xs hidden-sm">
-            <button class="btn btn-danger">Minha Conta</button>
-            <button class="btn btn-danger">Lista de Casamento</button>
-        </div>
+		<paper-button class="navbutton" label="Minha Conta" icon="icons:account-circle" on-click="{{ login }}"></paper-button>
+		<paper-button class="navbutton" label="Listas de Casamento" icon="icons:search" on-click="{{ weddinglists }}"></paper-button>
     </nav>
 </header>
 <paper-toast id="toast" text="Produto adicionado ao carrinho."></paper-toast>
@@ -84,7 +82,7 @@
         </div>
 
     <cart-summary></cart-summary>
-    <paper-icon-button id="rmenuicon" icon="shopping-cart"></paper-icon-button>
+    <paper-icon-button id="rmenuicon" icon="icons:shopping-cart"></paper-icon-button>
 
     </core-toolbar>
 	<categories-hmenu></categories-hmenu>

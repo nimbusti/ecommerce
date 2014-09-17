@@ -28,7 +28,7 @@
 				}
 			}
 			if(!productInCart) {
-				var newItem = { SKU: detail.SKU, title: detail.title, price: detail.price, quantity: detail.quantity};
+				var newItem = { SKU: detail.SKU, title: detail.title, price: detail.price, quantity: detail.quantity, image: detail.image};
 				cart.push(newItem);
 			}
 			this.$.storage.value = cart;

@@ -79,7 +79,7 @@
 			} else {
 				finalUnitPrice = +this.product.price;
 			}
-			this.fire('core-signal', {name: "addtocart", data: { SKU: this.product.SKU, title: this.product.title, price: finalUnitPrice, quantity: this.quantity }});
+			this.fire('core-signal', {name: "addtocart", data: { SKU: this.product.SKU, title: this.product.title, price: finalUnitPrice, quantity: this.quantity, image: this.product.image }});
 			document.querySelector('#toast').show();
 		}
 	});

@@ -12,7 +12,7 @@
 			</div>
 			<template repeat="{{ item in items }}">
 			<div class="row">
-				<div class="col-xs-4"><img src="/images/krups.jpg" alt="Image" class="img-responsive img-thumbnail" /></div>
+				<div class="col-xs-4"><img src="{{ item.image }}" alt="Image" class="img-responsive img-thumbnail" /></div>
 				<div class="col-xs-8 product-description">
 					{{ item.quantity }} x {{ item.title }}
 				</div>
