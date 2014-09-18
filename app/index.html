@@ -33,10 +33,10 @@
 <body unresolved horizontal layout>
 <header>
     <h1><img src="/images/dular-logo.gif" height="60" alt="Dular" title="Dular" border="0"></h1>
-    <nav>
-		<paper-button class="navbutton" label="Minha Conta" icon="icons:account-circle" on-click="{{ login }}"></paper-button>
-		<paper-button class="navbutton" label="Listas de Casamento" icon="icons:search" on-click="{{ weddinglists }}"></paper-button>
-    </nav>
+	<nav>
+		<weddings-search></weddings-search>
+		<main-login></main-login>
+	</nav>
 </header>
 <paper-toast id="toast" text="Produto adicionado ao carrinho."></paper-toast>
 <cart-model></cart-model>
@@ -81,7 +81,6 @@
             <input type="text" class="form-control">
         </div>
 
-    <cart-summary></cart-summary>
     <paper-icon-button id="rmenuicon" icon="icons:shopping-cart"></paper-icon-button>
 
     </core-toolbar>

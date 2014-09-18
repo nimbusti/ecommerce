@@ -178,13 +178,3 @@ header::after {
 header nav {
     vertical-align: top;
 }
-
-paper-button {
-	width: 80%;
-	margin-bottom: 0px;
-}
-
-paper-button.navbutton {
-	background: #fff;
-	color: #4285f4;
-}
