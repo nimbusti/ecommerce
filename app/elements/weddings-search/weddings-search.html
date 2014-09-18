@@ -4,11 +4,11 @@
 <polymer-element name="weddings-search">
 	<template>
 		<link rel="stylesheet" href="weddings-search.css">
-		<core-animated-pages on-tap="{{ tapwedding }}" selected="{{ selected }}" transitions="hero-transition cross-fade">
-  			<section id="page1">
-				<paper-button id="hero-wedding-1"  hero-id="hero-wedding" label="Listas de Casamento" icon="icons:search"></paper-button>
+		<core-animated-pages on-tap="{{ tapwedding }}" selected="{{ selected }}" transitions="hero-transition">
+  			<section id="wbutton">
+				<paper-button id="hero-wedding-1"  hero-id="hero-wedding" hero label="Listas de Casamento" icon="icons:search"></paper-button>
   			</section>
-  			<section id="page2">
+  			<section id="wwindow">
     			<div id="hero-wedding-2" hero-id="hero-wedding" hero></div>
   			</section>
 		</core-animated-pages>
@@ -17,11 +17,8 @@
     Polymer('weddings-search', {
         selected : 0,
         tapwedding: function(e) {
-        	var p = e.target;
         	this.selected = this.selected ? 0 : 1;
         }
-
     });
-
 	</script>
 </polymer-element>
