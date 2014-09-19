@@ -13,7 +13,6 @@
   <!-- endbuild-->
   <link rel="import" href="bower_components/core-header-panel/core-header-panel.html">
   <link rel="import" href="bower_components/core-drawer-panel/core-drawer-panel.html">
-  <link rel="import" href="bower_components/paper-icon-button/paper-icon-button.html">
   <link rel="import" href="bower_components/core-icons/core-icons.html">
   <link rel="import" href="bower_components/core-icon-button/core-icon-button.html">
   <link rel="import" href="bower_components/core-toolbar/core-toolbar.html">
@@ -24,7 +23,9 @@
   <link rel="import" href="bower_components/paper-toast/paper-toast.html">
   <link rel="import" href="bower_components/paper-tabs/paper-tabs.html">
   <link rel="import" href="bower_components/paper-slider/paper-slider.html">
-
+  <link rel="import" href="bower_components/paper-button/paper-button.html">
+  <link rel="import" href="bower_components/paper-icon-button/paper-icon-button.html">
+  <link rel="import" href="bower_components/core-pages/core-pages.html">
   <link rel="stylesheet" href="styles/main.css" />
 
 
@@ -34,7 +35,7 @@
 <header>
     <h1><img src="/images/dular-logo.gif" height="60" alt="Dular" title="Dular" border="0"></h1>
 	<nav class="hidden-xs hidden-sm">
-		<weddings-search></weddings-search>
+		<paper-button id="wedding" label="Listas de Casamento" icon="icons:search"></paper-button>
 		<main-login></main-login>
 	</nav>
 </header>
@@ -84,8 +85,15 @@
     <paper-icon-button id="rmenuicon" icon="icons:shopping-cart"></paper-icon-button>
 
     </core-toolbar>
-	<categories-hmenu></categories-hmenu>
-	<products-grid></products-grid>
+    <categories-hmenu></categories-hmenu>
+    <core-pages id="pageview" selected="0">
+    	<div>		
+			<products-grid></products-grid>
+		</div>
+		<div>
+			teste
+		</div>
+	</core-pages>
 
 	</div>
     </core-drawer-panel>
@@ -98,7 +106,10 @@
 	    drawerPanel.togglePanel();
 	  });
 	});
-
+    document.querySelector('#wedding').onclick = function(e) {
+    	var p = document.querySelector('#pageview');
+    	p.selected = p.selected ? 0 : 1;
+      };
 </script>
 </body>
 </html>

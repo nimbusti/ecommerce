@@ -178,3 +178,20 @@ header::after {
 header nav {
     vertical-align: top;
 }
+
+#wedding {
+	position: absolute;
+	background: #fff;
+	color: #4285f4;
+	width: 200px;
+	height: 74px;
+	right: 25%;
+	top: 20px;	
+}
+
+core-pages {
+	position: absolute;
+    width: 100%;
+    height: 100%;
+}
+    
