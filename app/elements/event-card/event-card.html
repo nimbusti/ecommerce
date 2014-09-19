@@ -1,0 +1,12 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+
+<polymer-element name="event-card" attributes="event">
+<template>
+	<link rel="stylesheet" href="event-card.css">
+	<div class="pimage"><img src="{{event.image}}" height="150px;"/></div>
+	<div class="title">{{event.name}}</div>
+</template> 
+<script>
+	Polymer('event-card', {});
+</script>
+</polymer-element>
