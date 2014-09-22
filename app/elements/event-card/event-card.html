@@ -1,10 +1,30 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="/bower_components/core-icons/social-icons.html">
 
 <polymer-element name="event-card" attributes="event">
 <template>
 	<link rel="stylesheet" href="event-card.css">
-	<div class="pimage"><img src="{{event.image}}" height="150px;"/></div>
-	<div class="title">{{event.name}}</div>
+	<link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.css" />
+
+   
+    	<div class="row">
+    		<div class="col-xs-12 col-md-5">
+				<p><img class="img-responsive img-thumbnail" src="{{event.image}}" alt="foto"></p>
+			</div>
+			<div class="col-xs-6 col-md-7">
+				<div class="caption">
+					<p class="title">{{event.name}}</p>
+					<p>Data: {{event.date}}</p>
+					<p>{{event.message}}</p>
+					<paper-button id="facebook" icon="social:post-facebook"></paper-button>
+					<paper-button id="linkedin" icon="social:post-linkedin"></paper-button>
+					<paper-button id="twitter" icon="social:post-twitter"></paper-button>
+					<paper-button id="tumblr" icon="social:post-tumblr"></paper-button>
+				</div>
+			</div>
+		</div>
+
+
 </template> 
 <script>
 	Polymer('event-card', {});

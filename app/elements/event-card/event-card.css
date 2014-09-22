@@ -4,43 +4,33 @@
 	box-sizing: border-box;
 }
 
-div.pimage {
-	height: 150px;
-	v-align: top;
-	text-align: center;
-}
-div.title {
+p {
 	font-family: "proxima-nova",Helvetica,Arial,sans-serif;
-	font-size: 22px;
+	font-size: 12px;
 	font-weight: 300;
-	line-height: 1.2em;
-	padding: 0;
+	text-rendering: optimizeLegibility;
+	text-shadow: 0 0 1px rgba(255,255,255,0.01);
+	text-align: left;
+	padding-bottom: 5px;
+}
+
+p.title {
+	font-family: "proxima-nova",Helvetica,Arial,sans-serif;
+	font-size: 14px;
+	font-weight: 600;
 	text-rendering: optimizeLegibility;
 	text-shadow: 0 0 1px rgba(255,255,255,0.01);
 	color: #333;
-	text-align: center;
-	width: 240px;
+	text-align: left;
 	overlay: invisible;
 }
 
-div.product-price {
-	text-transform: uppercase;
-	font-family: "proxima-nova",Helvetica,Arial,sans-serif;
-	font-size: 16px;
-	font-weight: 300;
-	line-height: 1.2em;
-	padding-top: 10px;
-	text-rendering: optimizeLegibility;
-	text-shadow: 0 0 1px rgba(255,255,255,0.01);
-	text-align: center;
-	padding-bottom: 20px;
+img {
+	height: 240px;
+	max-width: 240px;
+	v-align: top;
 }
 
-.product-price-final {
-	color: green;
-}
-
-.product-price-original {
-	color: red;
-	text-decoration: line-through;
+paper-button {
+	color: blue;
 }
