@@ -10,7 +10,6 @@ p {
 	font-weight: 300;
 	text-rendering: optimizeLegibility;
 	text-shadow: 0 0 1px rgba(255,255,255,0.01);
-	text-align: left;
 	padding-bottom: 5px;
 }
 
@@ -25,10 +24,28 @@ p.title {
 	overlay: invisible;
 }
 
-img {
+div.caption {
+	margin-left: 20px;
+	margin-bottom: 40px;
+	margin-top: 10px;
+	padding-right: 50px;
+	border-bottom: 1px solid #dcdcdc;
+}
+.desktop img {
 	height: 240px;
 	max-width: 240px;
 	v-align: top;
+}
+
+.phone {
+    width: 430px;
+    height: 280px;
+    overflow: hidden;
+}
+
+.phone img {
+    width: 430px;
+    margin-top: -50px;   
 }
 
 paper-button {

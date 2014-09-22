@@ -7,11 +7,12 @@
 
 .card {
       position: relative;
-      height: 240px;
+      height: auto;
       width: 600px;
       background-color: #fafafa;
       border-radius: 4px;
       cursor: default;
+      align-content: center;
     }
 
 .view {

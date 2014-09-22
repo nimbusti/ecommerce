@@ -7,12 +7,12 @@
 	<link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.css" />
 
    
-    	<div class="row">
-    		<div class="col-xs-12 col-md-5">
+    	<div class="row hidden-xs hidden-sm">
+    		<div class="col-xs-12 col-md-5 desktop">
 				<p><img class="img-responsive img-thumbnail" src="{{event.image}}" alt="foto"></p>
 			</div>
 			<div class="col-xs-6 col-md-7">
-				<div class="caption">
+				<div>
 					<p class="title">{{event.name}}</p>
 					<p>Data: {{event.date}}</p>
 					<p>{{event.message}}</p>
@@ -23,7 +23,22 @@
 				</div>
 			</div>
 		</div>
-
+		<div class="row hidden-md hidden-lg">
+    		<div class="col-xs-12 phone">
+				<p><img src="{{event.image}}" alt="foto"></p>
+			</div>
+			<div class="col-xs-12 caption">
+					<p class="title">{{event.name}}</p>
+					<p>Data: {{event.date}}</p>
+					<p>{{event.message}}</p>
+					<p style="text-align: center">
+					<paper-button id="facebook" icon="social:post-facebook"></paper-button>
+					<paper-button id="linkedin" icon="social:post-linkedin"></paper-button>
+					<paper-button id="twitter" icon="social:post-twitter"></paper-button>
+					<paper-button id="tumblr" icon="social:post-tumblr"></paper-button>
+					<p>
+			</div>
+		</div>
 
 </template> 
 <script>
