@@ -1,15 +1,18 @@
 <polymer-element name="events-grid">
     <template>
     <link rel="stylesheet" href="events-grid.css">
+	<section id="options">
+			<core-input id="filter" placeholder="Filter" on-input="{{filterList}}"></core-input>
+	</section>
     <core-animated-pages id="pages" flex selected="0" on-core-animated-pages-transition-end="{{transitionend}}" transitions="cross-fade-all hero-transition">
       <section vertical layout>
         <div id="container" flex horizontal wrap around-justified layout hero-p>
-          <template repeat="{{item in items}}">
+          <template repeat="{{item in fitems}}">
             <div class="card" horizontal center center-justified layout hero-id="item-{{item.index}}" hero?="{{$.pages.selected === item.index + 1 || lastSelected === item.index + 1}}" on-tap="{{selectView}}"><span cross-fade><event-card event="[[item]]"></event-card></span></div>
           </template>
         </div>
       </section>
-      <template repeat="{{item in items}}">
+      <template repeat="{{item in fitems}}">
         <section vertical layout>
         <div class="container-fluid">
 		<div class="row">
@@ -66,6 +69,7 @@
 	                   }
 	                ];
 	      this.items = items;
+	      this.fitems = items;
 	  },
 	  transitionend: function() {
 	        if (this.lastSelected) {
@@ -79,6 +83,17 @@
 	  selectView: function(e) {
 	        var i = e.target.templateInstance.model.item.index;
 	        this.$.pages.selected = i+1;
+	  },
+	  filterList: function (e, u, input) {
+			var value = input.inputValue;
+
+			function hasValue (o) {
+				return o.name.toLowerCase().indexOf(value.toLowerCase()) > -1;
+			}
+
+			this.fitems = this.items.filter(hasValue);
+			var numResults = this.fitems.length;
+			this.$.filter.invalid = !numResults;
 	  }
   });
   </script>

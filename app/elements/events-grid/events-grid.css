@@ -36,3 +36,11 @@ core-animated-pages {
 paper-tabs::shadow #selectionBar {
     background-color: #ff4081;
 }
+
+core-input {
+				margin-bottom: 1em;
+				background-color: white;
+				box-sizing: border-box;
+				width: calc(100% - 3em);
+				padding: .4em .6em;
+}
