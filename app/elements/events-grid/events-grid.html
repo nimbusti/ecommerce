@@ -1,9 +1,7 @@
 <polymer-element name="events-grid">
     <template>
     <link rel="stylesheet" href="events-grid.css">
-	<section id="options">
-			<core-input id="filter" placeholder="Filter" on-input="{{filterList}}"></core-input>
-	</section>
+	<core-input id="filter" placeholder="Pesquise por nome" on-input="{{filterList}}"></core-input>
     <core-animated-pages id="pages" flex selected="0" on-core-animated-pages-transition-end="{{transitionend}}" transitions="cross-fade-all hero-transition">
       <section vertical layout>
         <div id="container" flex horizontal wrap around-justified layout hero-p>

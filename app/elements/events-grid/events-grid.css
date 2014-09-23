@@ -38,9 +38,9 @@ paper-tabs::shadow #selectionBar {
 }
 
 core-input {
-				margin-bottom: 1em;
-				background-color: white;
-				box-sizing: border-box;
-				width: calc(100% - 3em);
-				padding: .4em .6em;
+	margin-bottom: 1em;
+	background-color: white;
+	box-sizing: border-box;
+	width: 100%;
+	padding: .4em .6em;
 }
