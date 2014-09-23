@@ -1,0 +1,196 @@
+
+<link rel="import" href="../../bower_components/core-animated-pages/transitions/slide-up.html">
+<link rel="import" href="../../bower_components/core-animated-pages/transitions/list-cascade.html">
+
+
+<polymer-element name="registry-grid" attributes="">
+  <template>
+    <link rel="stylesheet" href="registry-grid.css">
+
+
+      <core-animated-pages selected="{{page}}" transitions="hero-transition slide-up list-cascade cross-fade" on-core-animated-pages-transition-end="{{complete}}">
+
+          <section layout vertical>
+
+              <div class="tile-container" layout flex horizontal wrap center-justified>
+                  <template repeat="{{item in fitems}}">
+                      <div class="card-container">
+                          <div class="card" layout center hero-id="item-{{item.index}}" hero on-tap="{{transition}}">
+                              <span cross-fade>
+                                  <registry-card event="[[item]]"></registry-card>
+                              </span>
+                          </div>
+                      </div>
+                  </template>
+              </div>
+          </section>
+
+             <!-- <div class="tiles-container">
+                  <div class="tile" style="background-color:#ccc;" layout vertical>
+                      <div class="tile-top" flex></div>
+                      <div class="tile-bottom" style="background-color:#aaa;">
+                          Leaderboard
+                      </div>
+                  </div>
+                  <div class="tile" hero-id="category-image" hero style="background-color:#ffff8d;" layout vertical on-tap="{{transition}}">
+                      <div class="tile-top" flex></div>
+                      <div class="tile-bottom" hero-id="footer" hero style="background-color:#ffeb3b;">
+                          General Knowledge
+                      </div>
+                  </div>
+                  <div class="tile" style="background-color:#b9f6ca;" layout vertical>
+                      <div class="tile-top" flex></div>
+                      <div class="tile-bottom" style="background-color:#0f9d58;">
+                          Category 2
+                      </div>
+                  </div>
+                  <div class="tile" style="background-color:#ff8a80;" layout vertical>
+                      <div class="tile-top" flex></div>
+                      <div class="tile-bottom" style="background-color:#db4437;">
+                          Category 3
+                      </div>
+                  </div>
+                  <div class="tile" style="background-color:#82b1ff;" layout vertical>
+                      <div class="tile-top" flex></div>
+                      <div class="tile-bottom" style="background-color:#4285f4;">
+                          Category 4
+                      </div>
+                  </div>
+                  <div class="tile" style="background-color:#b388ff;" layout vertical>
+                      <div class="tile-top" flex></div>
+                      <div class="tile-bottom" style="background-color:#7e57c2;">
+                          Category 5
+                      </div>
+                  </div>
+              </div>-->
+
+
+          <section layout vertical>
+
+              <div class="top" hero-id="item-{{itemSelected.index}}" hero flex layout horizontal center center-justified>
+                  <div class="top-image" cross-fade>
+                      <div class="col-xs-12 col-md-5 desktop">
+                          <p><img class="img-responsive img-thumbnail" src="{{itemSelected.image}}" alt="foto"></p>
+                      </div>
+                  </div>
+              </div>
+              <div class="bottom" hero-id="item-{{itemSelected.index}}" hero cross-fade>
+                  <span cross-fade>{{itemSelected.name}}</span>
+              </div>
+              <div class="fab fab-0" hero-id="fab" hero>
+                  <paper-fab icon="av:play-arrow" on-tap="{{transition}}" hero></paper-fab>
+              </div>
+          </section>
+
+          <section layout vertical>
+
+              <div class="tall-toolbar questions" hero-id="item-{{itemSelected.index}}" hero>
+                  <span cross-fade>Question here</span>
+              </div>
+              <div class="fab fab-1" hero-id="fab" hero>
+                  <paper-fab icon="favorite" on-tap="{{transition}}" hero></paper-fab>
+              </div>
+
+              <div flex class="middle" slide-up list-cascade>
+                  <p>Option 1</p>
+                  <p>Option 2</p>
+                  <p>Option 3</p>
+                  <p>Option 4</p>
+                  <p>Option 5</p>
+              </div>
+
+              <div class="footer" layout horizontal slide-up>
+                  <div class="avatar"></div>
+                  <div class="footer-right" flex>
+                      some text here
+                  </div>
+                  <div class="score">
+                      32 pts
+                  </div>
+              </div>
+
+          </section>
+
+      </core-animated-pages>
+
+  </template>
+  <script>
+      Polymer('registry-grid',{
+          page: 0,
+
+          itemSelected:{},
+
+          transition: function(event, detail, sender) {
+
+              this.itemSelected = event.target.templateInstance.model.item;
+              console.log("Clicked " + this.itemSelected);
+
+              if (this.page === 2) {
+                  this.page = 0;
+              } else {
+                  this.page += 1;
+              }
+          },
+          ready: function() {
+              var items = [
+                  {
+                      index: 4532,
+                      name: 'Frederick Simião Abrantes e Silva e Layala Nogueira Campos',
+                      date: '19/01/2015',
+                      image: 'images/4532.jpg',
+                      message: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+                  },
+                  {
+                      index: 4762,
+                      name: 'Anaterra Oliveira da Silva e Lucas Claver Gomes Freire',
+                      date: '08/11/2014',
+                      image: 'images/4762.jpg',
+                      message: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+                  },
+                  {
+                      index: 5598,
+                      name: 'Marcone Sales Menezes e Fernanda de Oliveira Silva',
+                      date: '29/11/2014',
+                      image: 'images/5598.jpg',
+                      message: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+                  },
+                  {
+                      index: 8793,
+                      name: 'Cleidson Correa Viega e Bruna Feliciano da Silva Sampaio',
+                      date: '27/12/2014',
+                      image: 'images/8793.jpg',
+                      message: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+                  }
+              ];
+              this.items = items;
+              this.fitems = items;
+          },
+          transitionend: function() {
+              if (this.lastSelected) {
+                  this.lastSelected = null;
+              }
+          },
+          back: function() {
+              this.lastSelected = this.$.pages.selected;
+              this.$.pages.selected = 0;
+          },
+          selectView: function(e) {
+              var i = e.target.templateInstance.model.item.index;
+              this.$.pages.selected = i+1;
+          },
+          filterList: function (e, u, input) {
+              var value = input.inputValue;
+
+              function hasValue (o) {
+                  return o.name.toLowerCase().indexOf(value.toLowerCase()) > -1;
+              }
+
+              this.fitems = this.items.filter(hasValue);
+              var numResults = this.fitems.length;
+              this.$.filter.invalid = !numResults;
+          }
+
+
+      });
+  </script>
+</polymer-element>

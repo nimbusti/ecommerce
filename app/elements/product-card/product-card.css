@@ -10,7 +10,6 @@ div.pimage {
 	text-align: center;
 }
 div.title {
-	font-family: "proxima-nova",Helvetica,Arial,sans-serif;
 	font-size: 22px;
 	font-weight: 300;
 	line-height: 1.2em;
@@ -25,7 +24,6 @@ div.title {
 
 div.product-price {
 	text-transform: uppercase;
-	font-family: "proxima-nova",Helvetica,Arial,sans-serif;
 	font-size: 16px;
 	font-weight: 300;
 	line-height: 1.2em;

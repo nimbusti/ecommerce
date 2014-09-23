@@ -9,7 +9,6 @@ img.pimage {
 }
 
 div.product-title {
-	font-family: 'Roboto Condensed', Helvetica, Times New Roman, sans-serif;
 	text-transform: uppercase;
 	font-size: 1.5em;
 	font-weight: 300;
@@ -24,7 +23,6 @@ div.product-title {
 
 div.product-price {
 	text-transform: uppercase;
-	font-family: "proxima-nova",Helvetica,Arial,sans-serif;
 	font-size: 20px;
 	font-weight: 300;
 	line-height: 1.2em;
@@ -90,7 +88,6 @@ p.product-description {
 	padding-bottom: 10px;
 	padding-left: 20px;
 	padding-right: 20px;
-	font-family: 'Roboto Condensed', Helvetica, Times New Roman, sans-serif;
 	font-size: 1.0em;
 	color: #a0a0a0;
 }
@@ -99,7 +96,6 @@ div.product-options {
 	padding-bottom: 10px;
 	padding-left: 20px;
 	padding-right: 20px;
-	font-family: 'Roboto Condensed', Helvetica, Times New Roman, sans-serif;
 	font-size: 1.0em;
 	color: #a0a0a0;
 	text-align: center;

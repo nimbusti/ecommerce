@@ -2,10 +2,43 @@
 <html>
 
 <head>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style"
+          content="black-translucent" >
+    <meta name="format-detection" content="telephone=no">
+
+<!--    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="icon" sizes="196x196" href="icons/icon-196.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="icons/iPad@2x.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="icons/Icon-72@2x.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="icons/iPhone@2x.png">-->
+
+    <meta name="application-name" content="Dular">
+
+    <!--
+    Chrome 35 has old :host behavior before :host-context addition.
+    Since Chrome 35 does not have HTMLImports, we can use this as a decent signal
+    to force the ShadowDOM Polyfill.
+    -->
+    <script>
+        if (!('import' in document.createElement('link'))) {
+            var Platform = {flags: {shadow: true}};
+        }
+    </script>
+
+
 	<script src="bower_components/platform/platform.js"></script>
+
+
+    <link rel="import" href="polyfills/fonts/roboto.html">
 	<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
 	<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.css" />
+    <link rel="stylesheet" href="bower_components/paper-fab/paper-fab.css" />
+
+
 
   <!-- build:vulcanized elements/elements.vulcanized.html -->
   <link rel="import" href="elements/elements.html">
@@ -26,12 +59,20 @@
   <link rel="import" href="bower_components/paper-button/paper-button.html">
   <link rel="import" href="bower_components/paper-icon-button/paper-icon-button.html">
   <link rel="import" href="bower_components/core-pages/core-pages.html">
+  <link rel="import" href="bower_components/paper-fab/paper-fab.html">
+
+
   <link rel="stylesheet" href="styles/main.css" />
 
 
 </head>
 
-<body unresolved horizontal layout>
+<body horizontal layout>
+
+
+
+
+
 <header>
     <h1><img src="/images/dular-logo.gif" height="60" alt="Dular" title="Dular" border="0"></h1>
 	<nav class="hidden-xs hidden-sm">
@@ -86,14 +127,22 @@
         
     	<paper-icon-button id="rmenuicon" icon="icons:shopping-cart" ></paper-icon-button>
     </core-toolbar>
-   
+
+
+
     <core-pages id="pageview" selected="0">
     	<div>
     		<categories-hmenu></categories-hmenu>
 			<products-grid></products-grid>
 		</div>
 		<div>
-			<events-grid></events-grid>
+
+            <template is="auto-binding">
+                <app-datasource url="data/categories.json" categories="{{categories}}"></app-datasource>
+                <registries-grid id="categories" name="categories"
+                                   categories="{{categories}}" wide="{{wide}}"></registries-grid>
+            </template>
+
 		</div>
 	</core-pages>
 
@@ -107,6 +156,10 @@
 	  navicon.addEventListener('click', function() {
 	    drawerPanel.togglePanel();
 	  });
+
+
+
+
 	});
     document.querySelector('#wedding').onclick = function(e) {
     	var p = document.querySelector('#pageview');

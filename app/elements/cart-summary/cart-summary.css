@@ -12,7 +12,6 @@ a:-webkit-any-link {
 	
 .quick-checkout .cart-summary-amount {
 	text-transform: uppercase;
-	font-family: "proxima-nova",Helvetica,Arial,sans-serif;
 	font-size: 14px;
 	font-weight: 300;
 	line-height: 1.2em;
@@ -25,7 +24,6 @@ a:-webkit-any-link {
 }
 
 .quick-checkout .cart-summary-text {
-	font-family: "proxima-nova",Helvetica,Arial,sans-serif;
 	font-size: 14px;
 	font-weight: 300;
 	line-height: 1.2em;
@@ -48,7 +46,6 @@ a:-webkit-any-link {
 	line-height: 30px;
 	padding-top: 1px;
 	width: 190px;
-	font-family: "proxima-nova", sans-serif;
 	font-weight: 600;
 	font-size: 14px;
 	color: #FFF;

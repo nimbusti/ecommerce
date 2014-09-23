@@ -1,0 +1,132 @@
+:host {
+    display: block;
+    flex: 1;
+    box-sizing: border-box;
+    overflow-y: auto;
+}
+
+.card-container {
+    position: relative;
+    display: inline-block;
+    height: auto;
+    width: 600px;
+    background-color: #fafafa;
+    border-radius: 4px;
+    cursor: default;
+    align-content: center;
+}
+
+.card {
+    background-color: #fff;
+    box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.16);
+    margin: 5px 5px 5px 5px;
+}
+
+core-animated-pages {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    flex: 1;
+    box-sizing: border-box;
+    display: block;
+    overflow-y: auto;
+    height: 100%;
+}
+
+.fab {
+    position: absolute;
+    fill: #fff;
+}
+
+.fab-0 {
+    bottom: 50px;
+    right: 24px;
+}
+
+.fab-1 {
+    top: 70px;
+    right: 24px;
+}
+
+paper-fab {
+    background-color: #ff4081;
+}
+
+.top {
+    background-color: #ffff8d;
+}
+
+.top-image {
+    background: url(quiz1-intro.png);
+    height: 287px;
+    width: 202px;
+}
+
+.bottom {
+    box-sizing: border-box;
+    position: relative;
+    height: 80px;
+    background-color: #ffeb3b;
+    padding: 24px;
+    color: #fff;
+    font-size: 32px;
+}
+
+.tall-toolbar {
+    box-sizing: border-box;
+    height: 100px;
+    position: relative;
+    color: #fff;
+    padding: 20px;
+    font-size: 48px;
+}
+
+.tall-toolbar.categories {
+    background-color: #00bbd3;
+    margin-bottom: 2px;
+}
+
+.tall-toolbar.questions {
+    background-color: #ffeb3b;
+}
+
+.middle {
+    background-color: #fafafa;
+    color: #3f3f3f;
+    padding: 24px 48px;
+    font-size: 24px;
+    line-height: 1.5;
+}
+
+.footer {
+    height: 20%;
+}
+
+.avatar {
+    height: 80px;
+    width: 80px;
+    background-color: #ff80ab;
+}
+
+.footer-right, .score {
+    border-top: 1px solid #ccc;
+    background-color: #fff;
+    padding: 30px;
+}
+
+.tile {
+    box-sizing: border-box;
+    float: left;
+    height: 200px;
+    width: 49%;
+    margin: 3px;
+}
+
+.tile-bottom {
+    padding: 8px;
+    color: #fff;
+}

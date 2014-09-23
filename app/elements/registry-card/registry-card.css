@@ -9,7 +9,6 @@ p {
 	font-weight: 300;
 	text-rendering: optimizeLegibility;
 	text-shadow: 0 0 1px rgba(255,255,255,0.01);
-	padding-bottom: 5px;
 }
 
 p.title {
@@ -36,16 +35,21 @@ div.caption {
 }
 
 .phone {
-    width: 430px;
+    width: 320px;
     height: 280px;
     overflow: hidden;
+
 }
 
 .phone img {
-    width: 430px;
+    width: 100%;
     margin-top: -50px;   
 }
 
 paper-button {
 	color: blue;
+}
+
+.img-thumbnail{
+    border: none;
 }
