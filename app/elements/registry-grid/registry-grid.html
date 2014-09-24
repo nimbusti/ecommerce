@@ -8,9 +8,9 @@
     <link rel="stylesheet" href="registry-grid.css">
 
 
-      <core-animated-pages selected="{{page}}" transitions="hero-transition slide-up list-cascade cross-fade" on-core-animated-pages-transition-end="{{complete}}">
+      <core-animated-pages flex selected="{{page}}" transitions="hero-transition slide-up list-cascade cross-fade" on-core-animated-pages-transition-end="{{complete}}">
 
-          <section layout vertical>
+          <section>
 
               <div class="tile-container" layout flex horizontal wrap center-justified>
                   <template repeat="{{item in registries}}">
@@ -25,57 +25,21 @@
               </div>
           </section>
 
-             <!-- <div class="tiles-container">
-                  <div class="tile" style="background-color:#ccc;" layout vertical>
-                      <div class="tile-top" flex></div>
-                      <div class="tile-bottom" style="background-color:#aaa;">
-                          Leaderboard
-                      </div>
-                  </div>
-                  <div class="tile" hero-id="category-image" hero style="background-color:#ffff8d;" layout vertical on-tap="{{transition}}">
-                      <div class="tile-top" flex></div>
-                      <div class="tile-bottom" hero-id="footer" hero style="background-color:#ffeb3b;">
-                          General Knowledge
-                      </div>
-                  </div>
-                  <div class="tile" style="background-color:#b9f6ca;" layout vertical>
-                      <div class="tile-top" flex></div>
-                      <div class="tile-bottom" style="background-color:#0f9d58;">
-                          Category 2
-                      </div>
-                  </div>
-                  <div class="tile" style="background-color:#ff8a80;" layout vertical>
-                      <div class="tile-top" flex></div>
-                      <div class="tile-bottom" style="background-color:#db4437;">
-                          Category 3
-                      </div>
-                  </div>
-                  <div class="tile" style="background-color:#82b1ff;" layout vertical>
-                      <div class="tile-top" flex></div>
-                      <div class="tile-bottom" style="background-color:#4285f4;">
-                          Category 4
-                      </div>
-                  </div>
-                  <div class="tile" style="background-color:#b388ff;" layout vertical>
-                      <div class="tile-top" flex></div>
-                      <div class="tile-bottom" style="background-color:#7e57c2;">
-                          Category 5
-                      </div>
-                  </div>
-              </div>-->
+          <section>
 
-
-          <section layout vertical>
-
-              <div class="top" hero-id="item-{{itemSelected.index}}" hero flex layout horizontal center>
+              <div class="top" hero-id="item-{{itemSelected.index}}" hero>
                   <div class="top-image" cross-fade>
-                      <div class="col-xs-12 col-md-5 desktop">
-                          <p><img class="img-responsive img-thumbnail" src="{{itemSelected.image}}" alt="foto"></p>
-                      </div>
+                          <img src="{{itemSelected.image}}" alt="foto">
                   </div>
               </div>
               <div class="bottom" hero-id="item-{{itemSelected.index}}" hero cross-fade>
-                  <span cross-fade>{{itemSelected.name}}</span>
+                  <span cross-fade><p>{{itemSelected.name}}</p></span>
+              </div>
+              <div hero-id="item-{{itemSelected.index}}" hero cross-fade>
+                  <span cross-fade><p class="message">{{itemSelected.message}}</p></span>
+                  <paper-button id="facebook" icon="social:post-facebook"></paper-button>
+                  <paper-button id="twitter" icon="social:post-twitter"></paper-button>
+                  <paper-button id="tumblr" icon="social:post-tumblr"></paper-button>
               </div>
               <div class="fab fab-0" hero-id="fab" hero>
                   <paper-fab icon="av:play-arrow" on-tap="{{transition}}" hero></paper-fab>

@@ -43,8 +43,10 @@ core-animated-pages {
 }
 
 .fab-0 {
-    bottom: 50px;
+    bottom: 75px;
+    position: fixed;
     right: 24px;
+    z-index: 2;
 }
 
 .fab-1 {
@@ -57,23 +59,54 @@ paper-fab {
 }
 
 .top {
-    background-color: #ffff8d;
+    background-color: #fff;
 }
 
+
 .top-image {
-    background: url(quiz1-intro.png);
-    height: 287px;
-    width: 202px;
+    height:300px;
+    overflow:hidden;
+    position:relative;
+    background-size: cover;
+    background-position: center center;
+}
+
+.top-image img{
+    max-width: 400px;
+    display: block;
+    width:100%;
+    left:0;
+    right:0;
+    margin-left:auto;
+    margin-right:auto;
+    top:0;
+    opacity:1;
+
+}
+
+.message{
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 1.1em;
+  max-width: 400px;
 }
 
 .bottom {
-    box-sizing: border-box;
-    position: relative;
-    height: 80px;
-    background-color: #ffeb3b;
     padding: 24px;
+    font-size: 18px;
     color: #fff;
-    font-size: 32px;
+    position:fixed;
+    left:0px;
+    bottom:0px;
+    height:60px;
+    width:100%;
+    z-index: 1;
+    background:darkslateblue;
+}
+
+.bottom p{
+    width: 70%;
+    margin: 0;
 }
 
 .tall-toolbar {
