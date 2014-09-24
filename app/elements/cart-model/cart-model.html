@@ -1,6 +1,7 @@
 <polymer-element name="cart-model">
 <template>
 	<core-signals on-core-signal-addtocart="{{addtocartSignal}}"></core-signals>
+	<core-signals on-core-signal-removefromcart="{{removefromcartSignal}}"></core-signals>
 	<core-localstorage id="storage" name="cart" value="{{mycart}}"></core-localstorage>
 </template>
   <script>
@@ -14,8 +15,7 @@
 				this.$.storage.save();
 			}
 		},
-		addtocartSignal: function(e, detail, sender) {
-			
+		addtocartSignal: function(e, detail, sender) {		
 			this.$.storage.load();
 			var cart = this.$.storage.value;
 			var arrayLength = cart.length;
@@ -30,6 +30,20 @@
 			if(!productInCart) {
 				var newItem = { SKU: detail.SKU, title: detail.title, price: detail.price, quantity: detail.quantity, image: detail.image};
 				cart.push(newItem);
+			}
+			this.$.storage.value = cart;
+			this.$.storage.save();
+			this.fire('core-signal', {name: "cartchanged", data: {  }});
+		},
+		removefromcartSignal: function(e, detail, sender) {
+			this.$.storage.load();
+			var cart = this.$.storage.value;
+			var arrayLength = cart.length;
+			for(var i = 0; i < arrayLength; i++) {
+			    if(cart[i].SKU === detail.SKU) {
+			    	cart.splice(i, 1);
+			        break;
+			    }
 			}
 			this.$.storage.value = cart;
 			this.$.storage.save();

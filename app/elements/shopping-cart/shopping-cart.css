@@ -1,6 +1,6 @@
 div.container {
 	margin-top: 100px;
-	width: 240px;
+	width: 280px;
 }
 
 
@@ -61,6 +61,10 @@ div.cart-shipping {
 div.checkout-button {
 	margin-top: 30px;
 	text-align: center;
+}
+
+div.delete-button {
+	margin-left: -15px !important;
 }
 
 paper-button {

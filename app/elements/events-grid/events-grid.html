@@ -1,9 +1,9 @@
 <polymer-element name="events-grid">
     <template>
     <link rel="stylesheet" href="events-grid.css">
-	<core-input id="filter" placeholder="Pesquise por nome" on-input="{{filterList}}"></core-input>
     <core-animated-pages id="pages" flex selected="0" on-core-animated-pages-transition-end="{{transitionend}}" transitions="cross-fade-all hero-transition">
       <section vertical layout>
+      	<core-input id="filter" placeholder="Pesquise por nome" on-input="{{filterList}}"></core-input>
         <div id="container" flex horizontal wrap around-justified layout hero-p>
           <template repeat="{{item in fitems}}">
             <div class="card" horizontal center center-justified layout hero-id="item-{{item.index}}" hero?="{{$.pages.selected === item.index + 1 || lastSelected === item.index + 1}}" on-tap="{{selectView}}"><span cross-fade><event-card event="[[item]]"></event-card></span></div>
@@ -38,28 +38,28 @@
 	  ready: function() {
 	      var items = [
 	                   {
-	                	   index: 4532, 
+	                	   index: 0, 
 	                	   name: 'Frederick Simião Abrantes e Silva e Layala Nogueira Campos', 
 	                	   date: '19/01/2015', 
 	                	   image: 'images/4532.jpg', 
 	                	   message: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
 	                   },
 	                   {
-	                	   index: 4762, 
+	                	   index: 1, 
 	                	   name: 'Anaterra Oliveira da Silva e Lucas Claver Gomes Freire', 
 	                	   date: '08/11/2014', 
 	                	   image: 'images/4762.jpg',
 	                	   message: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
 	                   },
 	                   {
-	                	   index: 5598, 
+	                	   index: 2, 
 	                	   name: 'Marcone Sales Menezes e Fernanda de Oliveira Silva', 
 	                	   date: '29/11/2014', 
 	                	   image: 'images/5598.jpg',
 	                	   message: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
 	                   },
 	                   {
-	                	   index: 8793, 
+	                	   index: 3, 
 	                	   name: 'Cleidson Correa Viega e Bruna Feliciano da Silva Sampaio', 
 	                	   date: '27/12/2014', 
 	                	   image: 'images/8793.jpg',

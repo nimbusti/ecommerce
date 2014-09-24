@@ -13,9 +13,10 @@
 			<template repeat="{{ item in items }}">
 			<div class="row">
 				<div class="col-xs-4"><img src="{{ item.image }}" alt="Image" class="img-responsive img-thumbnail" /></div>
-				<div class="col-xs-8 product-description">
+				<div class="col-xs-6 product-description">
 					{{ item.quantity }} x {{ item.title }}
 				</div>
+				<div class="col-xs-2 delete-button"><paper-icon-button id="{{item.SKU}}" class="red" on-click="{{deleteItem}}" icon="delete"></paper-icon-button></div>
 			</div>
 			</template>
 			<div class="row cart-footer">
@@ -82,6 +83,10 @@
     	},
     	randomIntFromInterval: function (min, max) {
     	    return Math.floor(Math.random()*(max-min+1)+min);
+    	},
+    	deleteItem: function(e) {
+    		var p = e.target;
+			this.fire('core-signal', {name: "removefromcart", data: { SKU: p.id }});
     	}
       });
   </script>
