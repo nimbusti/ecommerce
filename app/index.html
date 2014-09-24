@@ -29,8 +29,8 @@
         }
     </script>
 
-
-	<script src="bower_components/platform/platform.js"></script>
+    <link rel="import" href="bower_components/polymer/polymer.html">
+    <script src="bower_components/platform/platform.js"></script>
 
 
     <link rel="import" href="polyfills/fonts/roboto.html">
@@ -87,8 +87,8 @@
     	<section class="left-sidebar">
     		<div class="category-links">
     			<div class="hidden-md hidden-lg">
-    				<h6>Minha Conta</h6>
-                    <h6>Lista de Casamento</h6>
+    				<paper-button>Minha Conta</paper-button>
+                    <paper-button id="wedding2">Lista de Casamento</paper-button>
     			</div>
     			<h6>Departamentos</h6>
     			<ul id="filtra-categoria">
@@ -137,9 +137,9 @@
 		<div>
 
             <template is="auto-binding">
-                <app-datasource url="data/categories.json" categories="{{categories}}"></app-datasource>
-                <registries-grid id="categories" name="categories"
-                                   categories="{{categories}}" wide="{{wide}}"></registries-grid>
+                <app-datasource url="data/registries.json" registries="{{registries}}"></app-datasource>
+                <registry-grid id="registries" name="registries"
+                                   registries="{{registries}}" wide="{{wide}}"></registry-grid>
             </template>
 
 		</div>
@@ -155,15 +155,17 @@
 	  navicon.addEventListener('click', function() {
 	    drawerPanel.togglePanel();
 	  });
-
-
-
-
 	});
     document.querySelector('#wedding').onclick = function(e) {
     	var p = document.querySelector('#pageview');
-    	p.selected = p.selected ? 0 : 1;
+    	p.selected = 1;
       };
+    document.querySelector('#wedding2').onclick = function(e) {
+        document.querySelector('core-drawer-panel').closeDrawer();
+        var p = document.querySelector('#pageview');
+        p.selected = 1;
+
+    };
 </script>
 </body>
 </html>

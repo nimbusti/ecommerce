@@ -3,7 +3,7 @@
 <link rel="import" href="../../bower_components/core-animated-pages/transitions/list-cascade.html">
 
 
-<polymer-element name="registry-grid" attributes="">
+<polymer-element name="registry-grid" attributes="registries">
   <template>
     <link rel="stylesheet" href="registry-grid.css">
 
@@ -13,9 +13,9 @@
           <section layout vertical>
 
               <div class="tile-container" layout flex horizontal wrap center-justified>
-                  <template repeat="{{item in fitems}}">
+                  <template repeat="{{item in registries}}">
                       <div class="card-container">
-                          <div class="card" layout center hero-id="item-{{item.index}}" hero on-tap="{{transition}}">
+                          <div class="card" layout flex center hero-id="item-{{item.index}}" hero on-tap="{{transition}}">
                               <span cross-fade>
                                   <registry-card event="[[item]]"></registry-card>
                               </span>
@@ -67,7 +67,7 @@
 
           <section layout vertical>
 
-              <div class="top" hero-id="item-{{itemSelected.index}}" hero flex layout horizontal center center-justified>
+              <div class="top" hero-id="item-{{itemSelected.index}}" hero flex layout horizontal center>
                   <div class="top-image" cross-fade>
                       <div class="col-xs-12 col-md-5 desktop">
                           <p><img class="img-responsive img-thumbnail" src="{{itemSelected.image}}" alt="foto"></p>
@@ -130,40 +130,6 @@
               } else {
                   this.page += 1;
               }
-          },
-          ready: function() {
-              var items = [
-                  {
-                      index: 4532,
-                      name: 'Frederick Simião Abrantes e Silva e Layala Nogueira Campos',
-                      date: '19/01/2015',
-                      image: 'images/4532.jpg',
-                      message: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
-                  },
-                  {
-                      index: 4762,
-                      name: 'Anaterra Oliveira da Silva e Lucas Claver Gomes Freire',
-                      date: '08/11/2014',
-                      image: 'images/4762.jpg',
-                      message: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
-                  },
-                  {
-                      index: 5598,
-                      name: 'Marcone Sales Menezes e Fernanda de Oliveira Silva',
-                      date: '29/11/2014',
-                      image: 'images/5598.jpg',
-                      message: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
-                  },
-                  {
-                      index: 8793,
-                      name: 'Cleidson Correa Viega e Bruna Feliciano da Silva Sampaio',
-                      date: '27/12/2014',
-                      image: 'images/8793.jpg',
-                      message: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
-                  }
-              ];
-              this.items = items;
-              this.fitems = items;
           },
           transitionend: function() {
               if (this.lastSelected) {

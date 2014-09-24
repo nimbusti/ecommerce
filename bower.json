@@ -2,10 +2,15 @@
   "name": "polymercommerce",
   "version": "0.0.0",
   "dependencies": {
-    "core-elements": "Polymer/core-elements#~0.3.5",
-    "paper-elements": "Polymer/paper-elements#~0.3.5",
-    "polymer": "Polymer/polymer#~0.3.5",
-    "bootstrap": "~3.2.0"
+    "core-elements": "Polymer/core-elements#~0.4.0",
+    "paper-elements": "Polymer/paper-elements#~0.4.0",
+    "polymer": "Polymer/polymer#~0.4.0",
+    "bootstrap": "~3.2.0",
+    "CustomElements": "~0.2.4",
+    "HTMLImports": "~0.2.3",
+    "PointerEvents": "https://github.com/Polymer/PointerEvents.git#~0.2.4",
+    "PointerGestures": "https://github.com/Polymer/PointerGestures.git#~0.2.4",
+    "ShadowDOM": "~0.2.3"
   },
   "devDependencies": {}
 }

@@ -12,7 +12,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <polymer-element name="app-datasource" hidden>
     <template>
 
-        <core-ajax auto handleAs="json" url="{{url}}" response="{{categories}}"></core-ajax>
+        <core-ajax auto handleAs="json" url="{{url}}" response="{{registries}}"></core-ajax>
 
     </template>
     <script>
@@ -22,7 +22,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
             publish: {
                 user: null,
-                categories: null,
+                registries: null,
                 url: ''
             }
 
