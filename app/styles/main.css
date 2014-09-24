@@ -35,7 +35,7 @@ body {
 
 core-drawer-panel, core-header-panel {
     height: 100%;
-    margin-top: 8em;
+    margin-top: 6em;
 }
 
 a:-webkit-any-link {
@@ -158,7 +158,7 @@ core-icon {
 header {
     text-align: justify;
     letter-spacing: 1px;
-    height: 10em;
+    height: 6em;
     padding: 1em 10%;
     background: url('http://www.dular.com.br/dular/images/bgTop.jpg');
     color: #fff;
@@ -168,6 +168,7 @@ header {
 header h1,
 header nav {
     display: inline-block;
+    margin:0;
 }
 
 header::after {
@@ -185,7 +186,6 @@ header nav {
 	background: #fff;
 	color: #4285f4;
 	width: 200px;
-	height: 74px;
 	right: 25%;
 	top: 20px;	
 }
