@@ -22,12 +22,13 @@ p.title {
 }
 
 div.caption {
-	margin-left: 20px;
-	margin-bottom: 40px;
-	margin-top: 10px;
-	padding-right: 50px;
-    height:90px;
+    height:130px;
 }
+
+div.caption.title{
+    padding: 15px;
+}
+
 .desktop img {
 	height: 240px;
 	max-width: 240px;
