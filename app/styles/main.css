@@ -195,3 +195,45 @@ core-pages {
     width: 100%;
     height: 100%;
 }
+
+/* blue theme */
+.main-theme /deep/ .theme-bg,
+                   .main-theme.theme-bg {
+                       background-color: #d2d1cf;
+                       color: #fff;
+                   }
+
+.main-theme /deep/ .theme-bg-a,
+                   .main-theme.theme-bg-a {
+                       background-color:  #b54e53;
+                       color: #fff;
+                   }
+.main-theme /deep/ .theme-bg-b,
+                   .main-theme.theme-bg-b {
+                       background-color:  #68abba;
+                       color: #fff;
+                   }
+
+.main-theme /deep/ .theme-color {
+                       color: #fff;
+                   }
+
+.main-theme /deep/ .theme-icon {
+                       color: #9fbdd7;
+                   }
+
+.main-theme /deep/ .theme-primary-color {
+                       color: #c37c82;
+                   }
+
+.main-theme /deep/ .theme-border-color {
+                       border-color: #9fbdd7;
+                   }
+
+.main-theme /deep/ paper-progress::shadow #progressContainer {
+                       background-color: transparent;
+                   }
+
+.main-theme /deep/ paper-progress::shadow #activeProgress {
+                       background-color: #9fbdd7;
+                   }

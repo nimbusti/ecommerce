@@ -1,23 +1,28 @@
 
 <link rel="import" href="../../bower_components/core-animated-pages/transitions/slide-up.html">
 <link rel="import" href="../../bower_components/core-animated-pages/transitions/list-cascade.html">
+<link rel="import" href="../../bower_components/core-animated-pages/transitions/cascade-transition.html">
+<link rel="import" href="../../bower_components/core-animated-pages/transitions/cross-fade.html">
+<link rel="import" href="../../bower_components/core-animated-pages/transitions/hero-transition.html">
+<link rel="import" href="../../bower_components/core-animated-pages/transitions/scale-up.html">
+<link rel="import" href="../../bower_components/core-animated-pages/transitions/slide-down.html">
 
-
-<polymer-element name="registry-grid" attributes="registries">
+<polymer-element name="registry-grid" attributes="registries registry">
   <template>
     <link rel="stylesheet" href="registry-grid.css">
+      <link rel="stylesheet" href="../../bower_components/core-animated-pages/transitions/hero-transition.css">
 
 
-      <core-animated-pages flex selected="{{page}}" transitions="hero-transition slide-up list-cascade cross-fade" on-core-animated-pages-transition-end="{{complete}}">
+      <core-animated-pages flex selected="{{page}}" transitions="hero-transition list-cascade cascade-transition slide-up list-cascade cross-fade" on-core-animated-pages-transition-end="{{complete}}">
 
           <section>
 
               <div class="tile-container" layout flex horizontal wrap center-justified>
                   <template repeat="{{item in registries}}">
                       <div class="card-container">
-                          <div class="card" layout flex center hero-id="item-{{item.index}}" hero on-tap="{{transition}}">
+                          <div class="card" layout flex center  on-tap="{{transition}}">
                               <span cross-fade>
-                                  <registry-card event="[[item]]"></registry-card>
+                                  <registry-card hero-id="item-{{item.index}}" hero event="[[item]]"></registry-card>
                               </span>
                           </div>
                       </div>
@@ -27,32 +32,35 @@
 
           <section>
 
-              <div class="top" hero-id="item-{{itemSelected.index}}" hero>
-                  <div class="top-image" cross-fade>
+              <div class="top" hero-id="item-{{itemSelected.index}}" hero cross-fase>
+                  <div class="top-image">
                           <img src="{{itemSelected.image}}" alt="foto">
                   </div>
               </div>
-              <div class="bottom" hero-id="item-{{itemSelected.index}}" hero cross-fade>
+              <div class="bottom theme-bg-a" hero-id="footer" hero cross-fade>
                   <span cross-fade><p>{{itemSelected.name}}</p></span>
               </div>
-              <div hero-id="item-{{itemSelected.index}}" hero cross-fade>
+              <div cross-fade>
                   <span cross-fade><p class="message">{{itemSelected.message}}</p></span>
-                  <paper-button id="facebook" icon="social:post-facebook"></paper-button>
-                  <paper-button id="twitter" icon="social:post-twitter"></paper-button>
-                  <paper-button id="tumblr" icon="social:post-tumblr"></paper-button>
+                  <div class="message" style="text-align: center;">
+                      <paper-button id="facebook" icon="social:post-facebook"></paper-button>
+                      <paper-button id="twitter" icon="social:post-twitter"></paper-button>
+                      <paper-button id="tumblr" icon="social:post-tumblr"></paper-button>
+                  </div>
               </div>
               <div class="fab fab-0" hero-id="fab" hero>
-                  <paper-fab icon="av:play-arrow" on-tap="{{transition}}" hero></paper-fab>
+                  <paper-fab class="theme-bg-b" icon="av:play-arrow" on-tap="{{transition}}" hero></paper-fab>
               </div>
           </section>
 
           <section layout vertical>
 
-              <div class="tall-toolbar questions" hero-id="item-{{itemSelected.index}}" hero>
-                  <span cross-fade>Question here</span>
+              <div class="tall-toolbar theme-bg-a" hero-id="footer" hero layout horizontal cross-fade>
+                      <img class="image-circle" src={{itemSelected.image}}>
+                  <p>{{itemSelected.name}}</p>
               </div>
               <div class="fab fab-1" hero-id="fab" hero>
-                  <paper-fab icon="favorite" on-tap="{{transition}}" hero></paper-fab>
+                  <paper-fab class="theme-bg-b" icon="favorite" on-tap="{{transition}}" hero></paper-fab>
               </div>
 
               <div flex class="middle" slide-up list-cascade>
@@ -86,12 +94,12 @@
 
           transition: function(event, detail, sender) {
 
-              this.itemSelected = event.target.templateInstance.model.item;
-              console.log("Clicked " + this.itemSelected);
-
               if (this.page === 2) {
                   this.page = 0;
               } else {
+                  if(event.target.templateInstance.model.item){
+                      this.itemSelected = event.target.templateInstance.model.item;
+                  }
                   this.page += 1;
               }
           },
