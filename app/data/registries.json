@@ -31,7 +31,60 @@
                 "sold": "false",
                 "image": "images/4908_400x320.jpg",
                 "detailimages": [ "images/8300_700x560.jpg" ]
-            }]
+            },
+            {
+                "index": 2,
+                "SKU": "003",
+                "title": "Liquidificador Delux",
+                "description": "220V. Potência: 550W. Marca: Delux.",
+                "price": "189.90",
+                "discount_percent": "0",
+                "discount_amount": "0.00",
+                "category": "Liquidificadores",
+                "sold": "false",
+                "image": "images/12595_400x320.jpg",
+                "detailimages": [ "images/8300_700x560.jpg" ]
+            },
+            {
+                "index": 3,
+                "SKU": "004",
+                "title": "Sanduicheira Compacta Collection",
+                "description": " 220V. Cor: Vermelha. Marca: Arno.",
+                "price": "189.90",
+                "discount_percent": "0",
+                "discount_amount": "0.00",
+                "category": "Sanduicheiras",
+                "sold": "false",
+                "image": "images/4568_400x320.jpg",
+                "detailimages": [ "images/8300_700x560.jpg" ]
+            },
+            {
+                "index": 4,
+                "SKU": "005",
+                "title": "Batedeira Elipse Adriana Barra",
+                "description": "220V. Marca: Arno",
+                "price": "189.90",
+                "discount_percent": "0",
+                "discount_amount": "20.00",
+                "category": "Batedeiras",
+                "sold": "false",
+                "image": "images/15464_400x320.jpg",
+                "detailimages": [ "images/8300_700x560.jpg" ]
+            },
+            {
+                "index": 5,
+                "SKU": "006",
+                "title": "Adega Dynasty",
+                "description": "Compressor para 34 garrafas.",
+                "price": "189.90",
+                "discount_percent": "0",
+                "discount_amount": "0.00",
+                "category": "Adegas",
+                "sold": "false",
+                "image": "images/17080_400x320.jpg",
+                "detailimages": [ "images/8300_700x560.jpg" ]
+            }
+        ]
     },
     {
         "index": 4762,
@@ -122,59 +175,6 @@
                 "sold": "false",
                 "image": "images/4908_400x320.jpg",
                 "detailimages": [ "images/8300_700x560.jpg" ]
-            },
-            {
-                "index": 2,
-                "SKU": "003",
-                "title": "Liquidificador Delux",
-                "description": "220V. Potência: 550W. Marca: Delux.",
-                "price": "189.90",
-                "discount_percent": "0",
-                "discount_amount": "0.00",
-                "category": "Liquidificadores",
-                "sold": "false",
-                "image": "images/12595_400x320.jpg",
-                "detailimages": [ "images/8300_700x560.jpg" ]
-            },
-            {
-                "index": 3,
-                "SKU": "004",
-                "title": "Sanduicheira Compacta Collection",
-                "description": " 220V. Cor: Vermelha. Marca: Arno.",
-                "price": "189.90",
-                "discount_percent": "0",
-                "discount_amount": "0.00",
-                "category": "Sanduicheiras",
-                "sold": "false",
-                "image": "images/4568_400x320.jpg",
-                "detailimages": [ "images/8300_700x560.jpg" ]
-            },
-            {
-                "index": 4,
-                "SKU": "005",
-                "title": "Batedeira Elipse Adriana Barra",
-                "description": "220V. Marca: Arno",
-                "price": "189.90",
-                "discount_percent": "0",
-                "discount_amount": "20.00",
-                "category": "Batedeiras",
-                "sold": "false",
-                "image": "images/15464_400x320.jpg",
-                "detailimages": [ "images/8300_700x560.jpg" ]
-            },
-            {
-                "index": 5,
-                "SKU": "006",
-                "title": "Adega Dynasty",
-                "description": "Compressor para 34 garrafas.",
-                "price": "189.90",
-                "discount_percent": "0",
-                "discount_amount": "0.00",
-                "category": "Adegas",
-                "sold": "false",
-                "image": "images/17080_400x320.jpg",
-                "detailimages": [ "images/8300_700x560.jpg" ]
-            }
-        ]
+            }]
     }
 ]
