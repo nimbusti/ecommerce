@@ -62,10 +62,11 @@
                   <paper-fab class="theme-bg-b" icon="favorite" on-tap="{{transition}}" hero></paper-fab>
               </div>
 
+              <div slide-up list-cascade flex>
               <template repeat="{{product in itemSelected.items}}">
                     <paper-item iconSrc={{product.image}} label={{product.title}}></paper-item>
               </template>
-
+              </div>
 <!--              <div flex class="middle" slide-up list-cascade>
                   <template layout horizontal repeat="{{product in itemSelected.items}}">
                       <img class="image-square" src={{product.image}}>
