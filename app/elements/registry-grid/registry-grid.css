@@ -119,8 +119,10 @@ core-animated-pages {
 
 .middle {
     padding: 24px 48px;
-    font-size: 24px;
+    font-size: 18px;
     line-height: 1.5;
+    width: 70%;
+    margin: auto 0 auto 10px;
 }
 
 .footer {
@@ -153,3 +155,10 @@ core-animated-pages {
     vertical-align:middle;
 }
 
+.image-square {
+    -webkit-border-radius: 5em;
+    -moz-border-radius: 5em;
+    border-radius: 5em;
+    width: 4em;
+    vertical-align:middle;
+}
