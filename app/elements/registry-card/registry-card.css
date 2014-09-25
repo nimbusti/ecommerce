@@ -29,22 +29,27 @@ div.caption.title{
     padding: 15px;
 }
 
+.desktop {
+     height: 240px;
+     max-width: 260px;
+     v-align: top;
+    overflow: hidden;
+    margin-right: auto;
+    margin-left: auto;
+ }
+
 .desktop img {
-	height: 240px;
-	max-width: 240px;
-	v-align: top;
+    height: 100%;
 }
 
 .phone {
     width: 320px;
     height: 220px;
     overflow: hidden;
-
 }
 
 .phone img {
     width: 100%;
-    margin-top: -50px;   
 }
 
 paper-button {

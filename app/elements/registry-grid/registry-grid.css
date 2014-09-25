@@ -58,6 +58,8 @@ core-animated-pages {
     position:relative;
     background-size: cover;
     background-position: center center;
+    margin-top: auto;
+    margin-bottom: auto;
 }
 
 .top-image img{
