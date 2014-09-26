@@ -95,6 +95,7 @@
           	<div flex horizontal center center-justified layout hero-id="product-{{productSelected.index}}" hero>
           		<product-detail product="{{productSelected}}" related="false"></product-detail>
           	</div>
+          	<core-icon-button icon='arrow-back' on-tap="{{back}}"></core-icon-button>
           </section>
 
       </core-animated-pages>
@@ -124,7 +125,6 @@
                   this.page = 0;
               } else {
                   this.productSelected = event.target.templateInstance.model.product;
-                  console.log('product', this.productSelected);
                   this.page += 1;
               }
           },
@@ -134,8 +134,9 @@
               }
           },
           back: function() {
-              this.lastSelected = this.$.pages.selected;
-              this.$.pages.selected = 0;
+        	  if (this.page > 0) {
+        		  this.page -= 1;
+        	  }
           },
           selectView: function(e) {
               var i = e.target.templateInstance.model.item.index;

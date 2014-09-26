@@ -2,6 +2,7 @@
 	display: block;
 	position: relative;
 	box-sizing: border-box;
+	width: 100%;
 }
 
 div.main-image {
@@ -9,7 +10,7 @@ div.main-image {
 
 div.main-image img {
 	float: right;
-	width: 80%;	
+	max-width: 70%;	
 }
 
 div.product-title {
@@ -49,6 +50,8 @@ div.product-info {
 	padding-top: 10px;
 	padding-left: 2px;
 	padding-right: 2px;
+	margin-right: 20px;
+	margin-left: 20px;
 }
 
 div.images-block {
@@ -149,4 +152,6 @@ paper-button[raisedButton].colored::shadow #focusBg {
 paper-fab.addtocart-button {
 	margin-top: -30px;
 	float: right;
+	right: 24px;
+	z-index: 2;
 }
