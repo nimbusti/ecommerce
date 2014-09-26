@@ -45,9 +45,11 @@ core-animated-pages {
     position: fixed;
     right: 24px;
     z-index: 2;
+    display: inline;
 }
 
 .fab-1 {
+	display: inline;
     top: 70px;
     right: 24px;
 }

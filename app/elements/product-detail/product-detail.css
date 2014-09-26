@@ -9,8 +9,9 @@ div.main-image {
 }
 
 div.main-image img {
+	margin-top: 20px;
 	float: right;
-	max-width: 70%;	
+	max-width: 70%;
 }
 
 div.product-title {

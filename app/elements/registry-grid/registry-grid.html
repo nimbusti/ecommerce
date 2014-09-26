@@ -92,13 +92,13 @@
                       <img class="image-circle" src={{itemSelected.image}}>
                   <p>{{itemSelected.name}}</p>
               </div>
-              <div class="fab fab-1" hero-id="fab" hero>
+              <div class="fab fab-1" id="addToCart-button" hero>
                   <paper-fab class="theme-bg-b" icon="icons:add-shopping-cart" raisedButton="false"></paper-fab>
               </div>
           	<div flex horizontal center center-justified layout hero-id="product-{{productSelected.index}}" hero>
           		<product-detail product="{{productSelected}}" related="false"></product-detail>
           	</div>
-          	<core-icon-button icon='arrow-back' on-tap="{{back}}"></core-icon-button>
+          	<core-icon-button style="vertical-align: top;" icon='arrow-back' on-tap="{{back}}"></core-icon-button>
           </section>
 
       </core-animated-pages>
