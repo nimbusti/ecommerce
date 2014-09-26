@@ -2,13 +2,13 @@
 <link rel="import" href="/bower_components/paper-radio-group/paper-radio-group.html">
 <link rel="import" href="/bower_components/core-localstorage/core-localstorage.html">
 
-<polymer-element name="product-detail" attributes="product">
+<polymer-element name="product-detail" attributes="product related">
 <template>
 	<link rel="stylesheet" href="../../bower_components/bootstrap/dist/css/bootstrap.css" />
 	<link rel="stylesheet" href="product-detail.css">
 	<paper-fab class="theme-bg-b addtocart-button" icon="icons:add-shopping-cart" raisedButton="false" on-tap="{{addThisToCart}}"></paper-fab>
 <div class="row product-info">
-  <div class="col-sm-8 images-block"><p><img src="/images/8300_700x560.jpg" alt="Image" class="img-responsive" /></p>
+  <div class="col-sm-8 images-block"><div class="main-image"><img src="/images/8300_700x560.jpg" alt="Image" class="img-responsive" /></div>
   <ul class="list-unstyled list-inline">
  	<li><img src="/images/12595_400x320.jpg" alt="Image" class="img-responsive img-thumbnail" /></li>
  	<li><img src="/images/15464_400x320.jpg" alt="Image" class="img-responsive img-thumbnail" /></li>
@@ -43,6 +43,7 @@
 	</div>
   </div>
 </div>
+<template if="{{ related }}">
 <div class="row products-related">
 	<div class="col-sm-6">
 		<p class="related-label">Clientes que adquiriram {{ product.title }} também compraram</p>
@@ -63,10 +64,12 @@
   		</ul>
 	</div>
 </div>
+</template>
 </template> 
 <script>
 	Polymer('product-detail', {
 		quantity: 1,
+		related: true,
 		addThisToCart: function() {
 			var finalUnitPrice;
 			if(this.product.discount_amount > 0) {

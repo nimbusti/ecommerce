@@ -4,8 +4,12 @@
 	box-sizing: border-box;
 }
 
-img.pimage {
-	float: left;
+div.main-image {
+}
+
+div.main-image img {
+	float: right;
+	width: 80%;	
 }
 
 div.product-title {
@@ -16,21 +20,20 @@ div.product-title {
 	padding-top: 30px;
 	padding-bottom: 30px;
 	text-rendering: optimizeLegibility;
-	text-shadow: 0 0 1px rgba(255,255,255,0.01);
+	text-shadow: 0 0 1px rgba(255, 255, 255, 0.01);
 	color: #252a2f;
 	text-align: center;
 }
 
 div.product-price {
 	text-transform: uppercase;
-	font-size: 20px;
+	font-size: 18px;
 	font-weight: 300;
 	line-height: 1.2em;
-	padding-top: 10px;
 	text-rendering: optimizeLegibility;
-	text-shadow: 0 0 1px rgba(255,255,255,0.01);
+	text-shadow: 0 0 1px rgba(255, 255, 255, 0.01);
 	text-align: center;
-	padding-bottom: 20px;
+	padding-bottom: 15px;
 }
 
 .product-price-final {
@@ -72,8 +75,8 @@ div.images-block {
 }
 
 div.product-label {
-	padding: 13px 20px;
-	font-size: 18px;
+	padding: 5px 15px;
+	font-size: 16px;
 	color: #2f353b;
 	text-transform: uppercase;
 	background: #fff;
@@ -81,11 +84,11 @@ div.product-label {
 	border-right: 1px solid #e8e8e8;
 	border-bottom: 4px solid #ffb400;
 	border-left: 1px solid #e8e8e8;
-	margin-bottom: 20px;
+	margin-bottom: 15px;
 }
 
 p.product-description {
-	padding-bottom: 10px;
+	padding-bottom: 5px;
 	padding-left: 20px;
 	padding-right: 20px;
 	font-size: 1.0em;
@@ -93,7 +96,7 @@ p.product-description {
 }
 
 div.product-options {
-	padding-bottom: 10px;
+	padding-bottom: 5px;
 	padding-left: 20px;
 	padding-right: 20px;
 	font-size: 1.0em;
@@ -108,7 +111,7 @@ div.product-quantity {
 
 div.products-related {
 	padding-top: 20px;
-	padding-bottom: 10px;
+	padding-bottom: 50px;
 	padding-left: 2px;
 	padding-right: 2px;
 	background: #f7f7ed;
@@ -140,7 +143,7 @@ paper-button[raisedButton].colored::shadow #ripple {
 }
 
 paper-button[raisedButton].colored::shadow #focusBg {
-background: #3367d6;
+	background: #3367d6;
 }
 
 paper-fab.addtocart-button {
