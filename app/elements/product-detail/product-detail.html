@@ -6,7 +6,7 @@
 <template>
 	<link rel="stylesheet" href="../../bower_components/bootstrap/dist/css/bootstrap.css" />
 	<link rel="stylesheet" href="product-detail.css">
-
+	<paper-fab class="theme-bg-b addtocart-button" icon="icons:add-shopping-cart" raisedButton="false" on-tap="{{addThisToCart}}"></paper-fab>
 <div class="row product-info">
   <div class="col-sm-8 images-block"><p><img src="/images/8300_700x560.jpg" alt="Image" class="img-responsive" /></p>
   <ul class="list-unstyled list-inline">
@@ -40,9 +40,6 @@
 	<section>
 		<paper-slider id="quantity" min="1" max="10" value="{{ quantity }}" snaps="true" pin="true" step="1" editable="true" secondaryProgress="10"></paper-slider>
 	</section>
-	</div>
-	<div>
-		<paper-button class="colored" label="adicionar ao carrinho" raisedButton on-click="{{addThisToCart}}"></paper-button>
 	</div>
   </div>
 </div>

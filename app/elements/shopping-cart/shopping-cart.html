@@ -1,3 +1,4 @@
+<link rel="import" href="/bower_components/core-animated-pages/core-animated-pages.html">
 <polymer-element name="shopping-cart" attributes="cep">
 	<template>
 		<link rel="stylesheet" href="shopping-cart.css">
@@ -11,13 +12,22 @@
 				<div class="col-xs-12"><p class="cart-title">Seu Carrinho</p></div>
 			</div>
 			<template repeat="{{ item in items }}">
-			<div class="row">
-				<div class="col-xs-4"><img src="{{ item.image }}" alt="Image" class="img-responsive img-thumbnail" /></div>
-				<div class="col-xs-6 product-description">
-					{{ item.quantity }} x {{ item.title }}
+		
+				<section class="content">
+				<div class="swipe-element">
+					<div class="swipe-back row">
+						<div class="col-xs-12">
+						Certeza
+						</div>
+					</div>		
+				<div class="swipe-front promote-layer row">			
+						<div class="col-xs-4"><img src="{{ item.image }}" alt="Image" class="img-responsive img-thumbnail" /></div>
+						<div class="col-xs-6 product-description">{{ item.quantity }} x {{ item.title }}</div>
+						<div class="col-xs-2 delete-button"><paper-icon-button id="{{item.SKU}}" class="red" on-click="{{deleteConfirm}}" icon="delete"></paper-icon-button></div>			
 				</div>
-				<div class="col-xs-2 delete-button"><paper-icon-button id="{{item.SKU}}" class="red" on-click="{{deleteItem}}" icon="delete"></paper-icon-button></div>
-			</div>
+				</div>
+				</section>
+			
 			</template>
 			<div class="row cart-footer">
 				<div class="col-xs-4"><p class="cart-label">Subtotal</p></div>
@@ -87,7 +97,10 @@
     	deleteItem: function(e) {
     		var p = e.target;
 			this.fire('core-signal', {name: "removefromcart", data: { SKU: p.id }});
+    	},
+    	deleteConfirm: function() {
+    		console.log('passou');
     	}
-      });
+    });
   </script>
 </polymer-element>

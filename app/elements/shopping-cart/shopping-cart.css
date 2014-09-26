@@ -3,7 +3,6 @@ div.container {
 	width: 280px;
 }
 
-
 .img-thumbnail {
 	min-width: 60px;
 	height: auto;
@@ -87,4 +86,46 @@ paper-button[raisedButton].colored::shadow #ripple {
 
 paper-button[raisedButton].colored::shadow #focusBg {
 	background: #3367d6;
+}
+
+.swipe-element {
+	position: relative;
+	width: 100%;
+}
+
+.swipe-front {
+	position: relative;
+	left: 0; top : 0;
+	z-index: 2;
+	/* // [START touch-action-example] */
+	/* Pass all touches to javascript */
+	-ms-touch-action: none;
+	touch-action: none;
+	top: 0;
+	/* // [END touch-action-example] */
+}
+
+.swipe-back {
+	position: absolute;
+	left: 0; top : 0;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	-ms-flex-direction: row;
+	-webkit-flex-direction: row;
+	flex-direction: row;
+	-ms-flex-pack: justify;
+	-webkit-justify-content: space-around;
+	justify-content: space-around;
+	-ms-flex-align: center;
+	-webkit-align-items: center;
+	align-items: center;
+	padding: 0 10px;
+	box-sizing: border-box;
+	top: 0;
+}
+
+.promote-layer {
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
 }
