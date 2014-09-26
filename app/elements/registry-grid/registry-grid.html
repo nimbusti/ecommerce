@@ -64,7 +64,9 @@
 
               <div slide-up list-cascade flex>
               <template repeat="{{product in itemSelected.items}}">
-                    <paper-item iconSrc={{product.image}} label={{product.title}}></paper-item>
+              	<div hero-id="product-{{product.index}}" hero>
+                    <paper-item iconSrc={{product.image}} label={{product.title}} on-tap="{{transitionb}}" hero></paper-item>
+                </div>
               </template>
               </div>
 <!--              <div flex class="middle" slide-up list-cascade>
@@ -85,6 +87,15 @@
               </div>
 
           </section>
+          <section>
+              <div class="tall-toolbar theme-bg-a" hero-id="footer" hero layout horizontal cross-fade>
+                      <img class="image-circle" src={{itemSelected.image}}>
+                  <p>{{itemSelected.name}}</p>
+              </div>
+          	<div flex horizontal center center-justified layout hero-id="product-{{productSelected.index}}" hero>
+          		<product-detail product="{{productSelected}}"></product-detail>
+          	</div>
+          </section>
 
       </core-animated-pages>
 
@@ -94,6 +105,8 @@
           page: 0,
 
           itemSelected:{},
+          
+          productSelected:{},
 
           transition: function(event, detail, sender) {
 
@@ -103,6 +116,15 @@
                   if(event.target.templateInstance.model.item){
                       this.itemSelected = event.target.templateInstance.model.item;
                   }
+                  this.page += 1;
+              }
+          },
+          transitionb: function(event, detail, sender) {
+              if (this.page === 3) {
+                  this.page = 0;
+              } else {
+                  this.productSelected = event.target.templateInstance.model.product;
+                  console.log('product', this.productSelected);
                   this.page += 1;
               }
           },
