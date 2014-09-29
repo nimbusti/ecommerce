@@ -15,14 +15,22 @@ div.title {
 	text-shadow: 0 0 1px rgba(0, 0, 0, 0.1);
 	color: #fff;
 	text-align: center;
-	margin-top: 10px;
+	margin-top: 20px;
 }
 .fab {
     position: absolute;
     fill: #fff;
 }
 
-.fab-0 {
+.fab-previous {
+    bottom: 75px;
+    position: fixed;
+    left: 24px;
+    z-index: 2;
+    display: inline;
+}
+
+.fab-next {
     bottom: 75px;
     position: fixed;
     right: 24px;
@@ -51,4 +59,13 @@ div.login-box {
 	position: relative;
 	top: 50px;
 	font-size: 18px;
+	text-rendering: optimizeLegibility;
+}
+
+div.address-box {
+	position: relative;
+	left: 10%;
+	top: 50px;
+	font-size: 18px;
+	text-rendering: optimizeLegibility;
 }
