@@ -1,0 +1,61 @@
+<link rel="import" href="../../bower_components/core-animated-pages/transitions/slide-from-right.html">
+<link rel="import" href="../../bower_components/paper-item/paper-item.html">
+
+<polymer-element name="checkout-process">
+	<template>
+		<link rel="stylesheet" href="checkout-process.css">
+		<div class="tall-toolbar theme-bg-b" flex layout horizontal>
+			<core-icon class="big" icon="payment"></core-icon>
+			<div class="title" flex layout horizontal center-justified>Finalizar Pedido</div>
+		</div>
+		<core-animated-pages flex selected="{{page}}" transitions="slide-from-right" on-core-animated-pages-transition-end="{{complete}}">
+			<section>
+				<div class="login-box" flex layout horizontal center-justified>
+					<paper-input id="email" type="email" placeholder="Informe seu email"></paper-input>
+				</div>
+				<div class="login-box" flex layout horizontal center-justified>
+					<paper-input id="password" type="password" placeholder="Informe sua senha"></paper-input>
+				</div>
+			</section>
+			<section>
+				<div slide-from-right>
+					Step 2
+				</div>	
+
+			</section>
+		</core-animated-pages>
+		<div class="bottom theme-bg-b" layout horizontal>
+			<div class="fab fab-0">
+				<paper-fab class="theme-bg-a" icon="av:play-arrow" on-tap="{{transition}}" ></paper-fab>
+			</div>
+		</div>
+	</template>
+	<script>
+      Polymer('checkout-process',{
+          page: 0,
+
+          itemSelected:{},
+          
+          productSelected:{},
+
+          transition: function(event, detail, sender) {
+
+              if (this.page === 1) {
+                  this.page = 0;
+              } else {
+                  this.page += 1;
+              }
+          },
+          transitionend: function() {
+              if (this.lastSelected) {
+                  this.lastSelected = null;
+              }
+          },
+          back: function() {
+        	  if (this.page > 0) {
+        		  this.page -= 1;
+        	  }
+          }
+      });
+	</script>
+</polymer-element>

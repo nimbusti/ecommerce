@@ -135,13 +135,14 @@
 			<products-grid></products-grid>
 		</div>
 		<div>
-
             <template is="auto-binding">
                 <app-datasource url="data/registries.json" registries="{{registries}}"></app-datasource>
                 <registry-grid id="registries" name="registries"
                                    registries="{{registries}}" wide="{{wide}}"></registry-grid>
             </template>
-
+		</div>
+		<div>
+			<checkout-process></checkout-process>
 		</div>
 	</core-pages>
 

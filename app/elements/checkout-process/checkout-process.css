@@ -1,0 +1,54 @@
+.tall-toolbar {
+    box-sizing: border-box;
+    height: 100px;
+    position: relative;
+    color: #fff;
+    padding: 15px;
+    font-size: 18px;
+}
+
+div.title {
+	text-transform: uppercase;
+	font-size: 1.4em;
+	font-weight: 300;
+	text-rendering: optimizeLegibility;
+	text-shadow: 0 0 1px rgba(0, 0, 0, 0.1);
+	color: #fff;
+	text-align: center;
+	margin-top: 10px;
+}
+.fab {
+    position: absolute;
+    fill: #fff;
+}
+
+.fab-0 {
+    bottom: 75px;
+    position: fixed;
+    right: 24px;
+    z-index: 2;
+    display: inline;
+}
+
+.bottom {
+    padding: 24px;
+    font-size: 18px;
+    color: #fff;
+    position:fixed;
+    left:0px;
+    bottom:0px;
+    height:60px;
+    width:100%;
+    z-index: 1;
+}
+
+.big {
+    height: 64px;
+    width: 64px;
+  }
+  
+div.login-box {
+	position: relative;
+	top: 50px;
+	font-size: 18px;
+}

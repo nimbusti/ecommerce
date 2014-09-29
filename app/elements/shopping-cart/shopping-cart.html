@@ -86,6 +86,11 @@
     	deleteItem: function(e) {
     		var p = e.target;
 			this.fire('core-signal', {name: "removefromcart", data: { SKU: p.id }});
+    	},
+    	checkout: function(e) {
+    		document.querySelector('#right-drawer').closeDrawer();
+        	var p = document.querySelector('#pageview');
+        	p.selected = 2;
     	}
     });
   </script>
