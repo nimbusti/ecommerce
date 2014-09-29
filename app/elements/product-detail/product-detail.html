@@ -8,7 +8,7 @@
 	<link rel="stylesheet" href="product-detail.css">
 	<paper-fab class="theme-bg-b addtocart-button" icon="icons:add-shopping-cart" raisedButton="false" on-tap="{{addThisToCart}}"></paper-fab>
 <div class="row product-info">
-  <div class="col-sm-8 images-block"><div class="main-image"><img src="/images/8300_700x560.jpg" alt="Image" class="img-responsive" /></div>
+  <div class="col-sm-8 images-block"><div class="main-image"><img src="{{ product.image }}" alt="Image" class="img-responsive" /></div>
   <ul class="list-unstyled list-inline">
  	<li><img src="/images/12595_400x320.jpg" alt="Image" class="img-responsive img-thumbnail" /></li>
  	<li><img src="/images/15464_400x320.jpg" alt="Image" class="img-responsive img-thumbnail" /></li>
@@ -20,13 +20,16 @@
   	<div class="product-title">{{ product.title }}</div>
   	<div class="product-label">Descrição</div>
   	<p class="product-description">{{ product.description }}</p>
+  	<template if="{{ product.options.length > 0 }}">
   	<div class="product-label">Opções</div>
 	<div class="product-options">
-		<paper-radio-group selected="110v">
-			<paper-radio-button name="110v" label="110 Volts"></paper-radio-button>
-			<paper-radio-button name="220v" label="220 Volts"></paper-radio-button>
+		<paper-radio-group>
+			<template repeat="{{ option in product.options }}">
+				<paper-radio-button name="{{ option }}" label="{{ option }}"></paper-radio-button>
+			</template>
 		</paper-radio-group>
-	</div>  	
+	</div>
+	</template>
   	<div class="product-label">Preço Unitário</div>
   	<template if="{{ +product.discount_amount || +product.discount_percent }}">
   		<div class="product-price">De <span class="product-price-original">R${{ product.price }}</span> por <span class="product-price-final">R${{ +product.discount_amount > 0 ? product.price - product.discount_amount : (+product.discount_percent > 0 ? product.price * ( 1 - product.discount_percent / 100) : +product.price) | currency(2, 3, '.', ',')}}</span></div>
