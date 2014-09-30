@@ -16,7 +16,7 @@
       <core-animated-pages flex selected="{{page}}" transitions="hero-transition list-cascade cascade-transition slide-up list-cascade cross-fade" on-core-animated-pages-transition-end="{{complete}}">
           <section flex layout vertical>
 
-              <paper-input id="filter" placeholder="Pesquise por nome" on-input="{{filterList}}"></paper-input>
+              <paper-input style="width: 100%" id="filter" placeholder="Pesquise por nome" on-input="{{filterList}}"></paper-input>
 
               <div class="tile-container" layout flex horizontal wrap center-justified>
                   <template repeat="{{item in fitems}}">
