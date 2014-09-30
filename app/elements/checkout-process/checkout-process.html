@@ -20,9 +20,39 @@
 			</section>
 			<section>
 				<div slide-from-right class="address-box">
-					<div class="title">Endereço de Entrega</div>
-					<core-icon-button icon="room" on-click="{{toggle}}">Casa</core-icon-button>
-					<core-collapse id="collapse">h uig wfhw ifgweiuf gw</core-collapse>
+					<div class="addresses">
+					<div>Endereço de Entrega</div>
+					
+					<paper-radio-group selected="casa">
+						<paper-radio-button id="casa" name="casa" on-click="{{toggle}}" label="Casa">
+							<core-collapse id="casadesc">SQN 216 Bloco J, 101, Brasília, DF, 70875-100</core-collapse>						
+						</paper-radio-button>
+						<paper-radio-button id="trabalho" name="trabalho" on-click="{{toggle}}" label="Trabalho">
+							<core-collapse id="trabalhodesc">SRTVN Quadra 01 Bloco K, 201, Brasília, DF, 70523-880</core-collapse>
+						</paper-radio-button>
+						<paper-radio-button name="novo" label="Cadastrar novo endereço"></paper-radio-button>
+					</paper-radio-group>
+					</div>
+					<div class="shipping">
+					<div>Forma de Envio</div>
+					<paper-radio-group selected="pac">
+						<paper-radio-button id="pac" name="pac" on-click="{{toggle}}" label="PAC"></paper-radio-button>
+						<paper-radio-button id="sedex" name="sedex" on-click="{{toggle}}" label="Sedex"></paper-radio-button>
+					</paper-radio-group>
+					</div>
+				</div>
+			</section>
+			<section>
+				<div slide-from-right class="address-box">
+					<div class="payment">
+					<div>Forma de Pagamento</div>	
+					<paper-radio-group selected="">
+						<paper-radio-button id="creditcard" name="creditcard" on-click="{{toggleb}}" label="Cartão de Crédito">
+							<core-collapse id="cartaodesc">Cartao</core-collapse>						
+						</paper-radio-button>
+						<paper-radio-button id="boleto" name="boleto" label="Boleto"></paper-radio-button>
+					</paper-radio-group>
+					</div>
 				</div>
 			</section>
 		</core-animated-pages>
@@ -39,11 +69,17 @@
       Polymer('checkout-process',{
           page : 0,
           
-          maxPage : 1,
+          maxPage : 2,
 
           itemSelected : {},
           
           productSelected : {},
+          
+          selected : 0,
+          
+          ready: function() {
+        	  this.$.casadesc.opened = true;
+          },
 
           transition: function(event, detail, sender) { 	  
         	  if (sender.id === 'next') {  		  
@@ -66,9 +102,16 @@
         		  this.page -= 1;
         	  }
           },
-          toggle: function() {
-        	  this.$.collapse.toggle();
+          toggle: function(event, detail, sender) {
+        	  if (sender.id === 'casa') {
+        		  this.$.casadesc.opened = true;
+        		  this.$.trabalhodesc.opened = false;
+        	  } else if (sender.id === 'trabalho') {
+        		  this.$.casadesc.opened = false;
+        		  this.$.trabalhodesc.opened = true;
+        	  }       	  
         	}
       });
+
 	</script>
 </polymer-element>
