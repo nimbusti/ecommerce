@@ -23,10 +23,10 @@
 				</div>
 			</section>
 			<section>
-				<div slide-from-right class="address-box">
-					<div class="addresses">
-					<div>Endereço de Entrega</div>
-					
+				<div layout flex slide-from-right class="address-box">
+					<div flex class="addresses">
+					<h4>Endereço de Entrega</h4>
+
 					<paper-radio-group selected="casa">
 						<paper-radio-button id="casa" name="casa" on-click="{{toggle}}" label="Casa">
 							<core-collapse id="casadesc">SQN 216 Bloco J, 101, Brasília, DF, 70875-100</core-collapse>						
@@ -37,21 +37,20 @@
 						<paper-radio-button name="novo" label="Cadastrar novo endereço"></paper-radio-button>
 					</paper-radio-group>
 					</div>
-					<div class="shipping">
-					<div>Forma de Envio</div>
+<!--					<div flex class="shipping">
+					<h4>Forma de Envio</h4>
 					<paper-radio-group selected="pac">
 						<paper-radio-button id="pac" name="pac" on-click="{{toggle}}" label="PAC (R$ 17,00)"></paper-radio-button>
 						<paper-radio-button id="sedex" name="sedex" on-click="{{toggle}}" label="Sedex (R$45,80)"></paper-radio-button>
 					</paper-radio-group>
-					</div>
+					</div>-->
 				</div>
 			</section>
 			<section>
 				<div slide-from-right>
-					<div class="container-fluid">
-						<div class="row payment">
-							<div class="col-xs-6 details">
-								<table class="table table-hover">
+					<div layout flex vertical>
+
+								<table flex class="table table-checkout table-hover" style="width: 90%; max-width: 600px;">
 									<thead>
 										<th colspan="3">
 											Resumo da Compra
@@ -84,9 +83,8 @@
 										</tr>
 									</tfoot>
 								</table>
-							</div>
-							<div class="col-xs-6">
-								<table class="table">
+
+								<table flex class="table table-checkout" style="width: 90%; max-width: 600px;">
 									<thead>
 										<th colspan="3">
 											Forma de Pagamento
@@ -111,11 +109,12 @@
 								</table>
 							</div>
 						</div>
-					</div>
-				</div>
+
+
 			</section>
 			<section>
 				<div slide-from-right class="address-box">
+                    <h4 style="text-align: center;vertical-align: middle">Obrigado pela compra!</h4>
 				</div>
 			</section>
 		</core-animated-pages>
