@@ -4,7 +4,11 @@
 
 <polymer-element name="checkout-process">
 	<template>
+		<core-localstorage id="storage" name="cart" value="{{ items }}"></core-localstorage>
+		<core-signals on-core-signal-cartchanged="{{cartChangedSignal}}"></core-signals>
 		<link rel="stylesheet" href="checkout-process.css">
+		<link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.css" />
+
 		<div class="tall-toolbar theme-bg-b" flex layout horizontal>
 			<core-icon class="big" icon="payment"></core-icon>
 			<div class="title" flex layout horizontal center-justified>Finalizar Pedido</div>
@@ -36,23 +40,82 @@
 					<div class="shipping">
 					<div>Forma de Envio</div>
 					<paper-radio-group selected="pac">
-						<paper-radio-button id="pac" name="pac" on-click="{{toggle}}" label="PAC"></paper-radio-button>
-						<paper-radio-button id="sedex" name="sedex" on-click="{{toggle}}" label="Sedex"></paper-radio-button>
+						<paper-radio-button id="pac" name="pac" on-click="{{toggle}}" label="PAC (R$ 17,00)"></paper-radio-button>
+						<paper-radio-button id="sedex" name="sedex" on-click="{{toggle}}" label="Sedex (R$45,80)"></paper-radio-button>
 					</paper-radio-group>
 					</div>
 				</div>
 			</section>
 			<section>
-				<div slide-from-right class="address-box">
-					<div class="payment">
-					<div>Forma de Pagamento</div>	
-					<paper-radio-group selected="">
-						<paper-radio-button id="creditcard" name="creditcard" on-click="{{toggleb}}" label="Cartão de Crédito">
-							<core-collapse id="cartaodesc">Cartao</core-collapse>						
-						</paper-radio-button>
-						<paper-radio-button id="boleto" name="boleto" label="Boleto"></paper-radio-button>
-					</paper-radio-group>
+				<div slide-from-right>
+					<div class="container-fluid">
+						<div class="row payment">
+							<div class="col-xs-6 details">
+								<table class="table table-hover">
+									<thead>
+										<th colspan="3">
+											Resumo da Compra
+										</th>
+									</thead>
+									<tbody>
+									<template repeat="{{ item in items }}">
+										<tr>
+											<td><img src="{{ item.image }}" alt="Image" class="img-responsive img-thumbnail" /></td>
+											<td>{{ item.quantity }} x {{ item.title }}</td>
+											<td>R${{ item.price * item.quantity | currency(2, 3, '.', ',')}}</td>
+										</tr>
+									</template>
+									</tbody>
+									<tfoot>
+										<tr>
+											<th> </th>
+											<th>Subtotal</th>
+											<th>R${{ subtotal | currency(2, 3, '.', ',') }}</th>
+										</tr>
+										<tr>
+											<th> </th>
+											<th>Frete</th>
+											<th>R$  {{ frete | currency(2, 3, '.', ',') }}</th>
+										</tr>
+										<tr>
+											<th> </th>
+											<th>Total</th>
+											<th>R${{ total | currency(2, 3, '.', ',') }}</th>
+										</tr>
+									</tfoot>
+								</table>
+							</div>
+							<div class="col-xs-6">
+								<table class="table">
+									<thead>
+										<th colspan="3">
+											Forma de Pagamento
+										</th>
+									</thead>
+									<tbody>
+										<tr>
+											<td style="vertical-align: top !important; height: 180px;">
+												<paper-radio-group selected="creditcard">
+													<paper-radio-button id="boleto" name="boleto" label="Boleto Bancário"></paper-radio-button>
+													<paper-radio-button id="creditcard" name="creditcard" label="Cartão de Crédito"></paper-radio-button>
+												</paper-radio-group>
+											</td>
+										</tr>
+										<tr>
+											<td>
+											5% de desconto no boleto à vista<br/>
+											Ou em até 6 vezes sem juros no cartão de crédito
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
 					</div>
+				</div>
+			</section>
+			<section>
+				<div slide-from-right class="address-box">
 				</div>
 			</section>
 		</core-animated-pages>
@@ -67,19 +130,27 @@
 	</template>
 	<script>
       Polymer('checkout-process',{
-          page : 0,
-          
-          maxPage : 2,
-
-          itemSelected : {},
-          
-          productSelected : {},
-          
-          selected : 0,
-          
-          ready: function() {
-        	  this.$.casadesc.opened = true;
-          },
+		page : 0,      
+		maxPage : 3,
+		itemSelected : {},   
+		productSelected : {},      
+		selected : 0,
+		total : 0,
+		frete : 0,
+		subtotal : 0,
+		ready: function() {
+			this.$.casadesc.opened = true;
+  			this.$.storage.load();
+			this.items = this.$.storage.value;
+			var arrayLength = this.items.length;
+			var subtotal = 0;
+			for (var i = 0; i < arrayLength; i++) {
+				subtotal += this.items[i].quantity * this.items[i].price;
+			}
+			this.subtotal = subtotal;
+			this.frete = this.randomIntFromInterval(17, 86);
+			this.total = subtotal + this.frete;
+		},
 
           transition: function(event, detail, sender) { 	  
         	  if (sender.id === 'next') {  		  
@@ -110,6 +181,23 @@
         		  this.$.casadesc.opened = false;
         		  this.$.trabalhodesc.opened = true;
         	  }       	  
+        	},
+            toggleb: function(event, detail, sender) {
+            	this.$.cartaodesc.opened = !this.$.cartaodesc.opened;  	  
+          	},
+        	cartChangedSignal: function(e, detail, sender) {
+    			this.$.storage.load();
+    			this.items = this.$.storage.value;
+    			var arrayLength = this.items.length;
+    			var subtotal = 0;
+    			for (var i = 0; i < arrayLength; i++) {
+    				subtotal += this.items[i].quantity * this.items[i].price;
+    			}
+    			this.subtotal = subtotal;
+    			this.total = subtotal + this.frete;
+        	},
+        	randomIntFromInterval: function (min, max) {
+        	    return Math.floor(Math.random()*(max-min+1)+min);
         	}
       });
 
