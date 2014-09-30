@@ -9,7 +9,7 @@
 		<link rel="stylesheet" href="checkout-process.css">
 		<link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.css" />
 
-		<div class="tall-toolbar theme-bg-b" flex layout horizontal>
+		<div class="tall-toolbar theme-bg-a" flex layout horizontal>
 			<core-icon class="big" icon="payment"></core-icon>
 			<div class="title" flex layout horizontal center-justified>Finalizar Pedido</div>
 		</div>
@@ -29,7 +29,7 @@
 
 					<paper-radio-group selected="casa">
 						<paper-radio-button id="casa" name="casa" on-click="{{toggle}}" label="Casa">
-							<core-collapse id="casadesc">SQN 216 Bloco J, 101, Brasília, DF, 70875-100</core-collapse>						
+							<core-collapse id="casadesc">SQN 216 Bloco J, 101, Brasília, DF, 70875-100</core-collapse>
 						</paper-radio-button>
 						<paper-radio-button id="trabalho" name="trabalho" on-click="{{toggle}}" label="Trabalho">
 							<core-collapse id="trabalhodesc">SRTVN Quadra 01 Bloco K, 201, Brasília, DF, 70523-880</core-collapse>
@@ -118,12 +118,12 @@
 				</div>
 			</section>
 		</core-animated-pages>
-		<div class="bottom theme-bg-b" layout horizontal>
+		<div class="bottom theme-bg-a" layout horizontal>
 			<div class="fab fab-previous" >
-				<paper-fab id="prev" icon="arrow-back" on-tap="{{ transition }}" ></paper-fab>
+				<paper-fab class="theme-bg-b" id="prev" icon="arrow-back" on-tap="{{ transition }}" ></paper-fab>
 			</div>
 			<div class="fab fab-next">
-				<paper-fab id="next" icon="arrow-forward" on-tap="{{ transition }}" ></paper-fab>
+				<paper-fab class="theme-bg-b" id="next" icon="arrow-forward" on-tap="{{ transition }}" ></paper-fab>
 			</div>
 		</div>
 	</template>
