@@ -7,17 +7,19 @@
 <link rel="import" href="../../bower_components/core-animated-pages/transitions/scale-up.html">
 <link rel="import" href="../../bower_components/core-animated-pages/transitions/slide-down.html">
 <link rel="import" href="../../bower_components/paper-item/paper-item.html">
+<link rel="import" href="../../bower_components/paper-input/paper-input.html">
 
-<polymer-element name="registry-grid" attributes="registries registry">
+<polymer-element name="registry-grid" attributes="registries registry fitems">
   <template>
     <link rel="stylesheet" href="registry-grid.css">
 
       <core-animated-pages flex selected="{{page}}" transitions="hero-transition list-cascade cascade-transition slide-up list-cascade cross-fade" on-core-animated-pages-transition-end="{{complete}}">
+          <section flex layout vertical>
 
-          <section>
+              <paper-input id="filter" placeholder="Pesquise por nome" on-input="{{filterList}}"></paper-input>
 
               <div class="tile-container" layout flex horizontal wrap center-justified>
-                  <template repeat="{{item in registries}}">
+                  <template repeat="{{item in fitems}}">
                       <div class="card-container">
                           <div class="card" layout flex center  on-tap="{{transition}}">
                               <span cross-fade>
@@ -28,7 +30,6 @@
                   </template>
               </div>
           </section>
-
           <section>
 
               <div class="top" hero-id="item-{{itemSelected.index}}" hero cross-fase>
@@ -105,12 +106,18 @@
 
   </template>
   <script>
+
       Polymer('registry-grid',{
+
           page: 0,
 
           itemSelected:{},
           
           productSelected:{},
+
+          registriesChanged:function(){
+            this.fitems = this.registries
+          },
 
           transition: function(event, detail, sender) {
 
@@ -151,8 +158,7 @@
               function hasValue (o) {
                   return o.name.toLowerCase().indexOf(value.toLowerCase()) > -1;
               }
-
-              this.fitems = this.items.filter(hasValue);
+              this.fitems = this.registries.filter(hasValue);
               var numResults = this.fitems.length;
               this.$.filter.invalid = !numResults;
           }
