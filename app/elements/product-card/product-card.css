@@ -8,6 +8,7 @@ div.pimage {
 	height: 150px;
 	v-align: top;
 	text-align: center;
+    margin-bottom: 15px;
 }
 div.title {
 	font-size: 22px;
